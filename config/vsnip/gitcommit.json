@@ -1,0 +1,57 @@
+{
+  "Feat": {
+    "prefix": ["feat"],
+    "body": ["feat${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a feature"
+  },
+  "Fix": {
+    "prefix": ["fix"],
+    "body": ["fix${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a fix"
+  },
+  "Style": {
+    "prefix": ["style"],
+    "body": ["style${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a style change"
+  },
+  "Refactor": {
+    "prefix": ["refactor"],
+    "body": ["refactor${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a refactoring"
+  },
+  "Build": {
+    "prefix": ["build"],
+    "body": ["build${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a build system change"
+  },
+  "Perf": {
+    "prefix": ["perf"],
+    "body": ["perf${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a performance change"
+  },
+  "CI": {
+    "prefix": ["ci"],
+    "body": ["ci${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a CI change"
+  },
+  "Docs": {
+    "prefix": ["docs"],
+    "body": ["docs${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a docs change"
+  },
+  "Test": {
+    "prefix": ["test"],
+    "body": ["test${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a test change"
+  },
+  "Chore": {
+    "prefix": ["chore"],
+    "body": ["chore${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a chore change"
+  },
+  "Revert": {
+    "prefix": ["revert"],
+    "body": ["revert${1:(${2:module})}${3:!}: ${4:description}"],
+    "description": "Conventional commit message for a revert"
+  }
+}
