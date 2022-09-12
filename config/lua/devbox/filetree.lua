@@ -3,8 +3,6 @@ local M = {}
 local wk = require("which-key")
 
 function M.setup()
-  vim.g.nvim_tree_group_empty = 1
-
   require'nvim-tree'.setup {
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
     update_cwd          = true,
@@ -34,6 +32,10 @@ function M.setup()
           }
         }
       }
+    },
+
+    renderer = {
+      group_empty = true,
     },
 
     view = {
