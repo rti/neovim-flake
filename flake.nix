@@ -189,51 +189,46 @@
         #          | to your imports!
         # opt      | List of optional plugins to load only when
         #          | explicitly loaded from inside neovim
-        neovimBuilder = { customRC  ? ""
-                        , viAlias   ? true
-                        , vimAlias  ? true
-                        , start     ? builtins.attrValues pkgs.neovimPlugins
-                        , opt       ? []
-                        , debug     ? false
-                        , depencies ? []}:
-                        let
-                          myNeovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
-                            propagatedBuildInputs = with pkgs; [
-                              # TODO find out why this is here
-                              pkgs.stdenv.cc.cc.lib
-                            ];
-                            patches = (prev.patches or []) ++ [
-                              ./nvim-no-mod-time-check-on-write.patch
-                            ];
-                            postInstall = ''
-                              mkdir -p $out/share/nvim/runtime
-                              #cp -r ${./.}/config/* $out/share/nvim/runtime
-                            '';
-                          });
+        neovimBuilder = { 
+          customRC  ? "", 
+          viAlias   ? true, 
+          vimAlias  ? true,
+          start     ? builtins.attrValues pkgs.neovimPlugins, 
+          opt       ? [], 
+          debug     ? false, 
+          depencies ? []}:
+            let
+            myNeovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
+              /* # TODO find out why this is here */
+              propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ];
+              patches = (prev.patches or []) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
+            });
 
-                          neovim-wrapped = pkgs.wrapNeovim myNeovimUnwrapped {
-                            inherit viAlias;
-                            inherit vimAlias;
-                            configure = {
-                              customRC = customRC;
-                              packages.myVimPackage = with pkgs.neovimPlugins; {
-                                start = start;
-                                opt = opt;
-                              };
-                            };
-                          };
-                          neovim-withExternalDependencies = pkgs.symlinkJoin {
-                            name = "neovim";
-                            paths = with pkgs; [ neovim-wrapped ] ++ depencies;
-                            nativeBuildInputs = [ pkgs.makeWrapper ];
-                            postBuild = ''
-                              wrapProgram $out/bin/nvim \
-                                --prefix PATH : $out/bin \
-                                --set JAVA_HOME ${pkgs.jdk11} \
-                            '';
-                          };
-                        in
-                        neovim-withExternalDependencies;
+            neovim-wrapped = pkgs.wrapNeovim myNeovimUnwrapped {
+              inherit viAlias;
+              inherit vimAlias;
+              configure = {
+                customRC = customRC;
+                packages.myVimPackage = with pkgs.neovimPlugins; {
+                  start = start;
+                  opt = opt;
+                };
+              };
+            };
+
+            neovim-withExternalDependencies = pkgs.symlinkJoin {
+              name = "neovim";
+              paths = with pkgs; [ neovim-wrapped ] ++ depencies;
+              nativeBuildInputs = [ pkgs.makeWrapper ];
+              postBuild = ''
+                wrapProgram $out/bin/nvim \
+                --prefix PATH : $out/bin \
+                --set JAVA_HOME ${pkgs.jdk11} \
+              '';
+            };
+
+            in
+              neovim-withExternalDependencies;
 
       in
       rec {
