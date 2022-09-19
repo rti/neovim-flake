@@ -221,7 +221,7 @@
               postBuild = ''
                 wrapProgram $out/bin/nvim \
                 --prefix PATH : $out/bin \
-                --set JAVA_HOME ${pkgs.jdk11} \
+                --set JAVA_HOME ${pkgs.jdk11}
               '';
             };
 
