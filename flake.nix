@@ -232,12 +232,12 @@
 
       in
       rec {
-        defaultApp = packages.neovim;
-        defaultPackage = packages.neovim;
+        apps.default = apps.nvim;
+        packages.default = packages.neovim;
 
         apps.nvim = {
           type = "app";
-          program = "${defaultPackage}/bin/nvim";
+          program = "${packages.default}/bin/nvim";
         };
 
         packages.neovim = neovimBuilder {
