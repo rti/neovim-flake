@@ -194,13 +194,13 @@
           debug     ? false, 
           depencies ? []}:
             let
-            myNeovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
+            neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
               /* # TODO find out why this is here */
               propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ];
               patches = (prev.patches or []) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
             });
 
-            neovim-wrapped = pkgs.wrapNeovim myNeovimUnwrapped {
+            neovim-wrapped = pkgs.wrapNeovim neovimUnwrapped {
               viAlias = true;
               vimAlias = true;
               configure = {
@@ -212,7 +212,7 @@
               };
             };
 
-            neovim-withExternalDependencies = pkgs.symlinkJoin {
+            neovim-withDeps = pkgs.symlinkJoin {
               name = "neovim";
               paths = with pkgs; [ neovim-wrapped ] ++ depencies;
               nativeBuildInputs = [ pkgs.makeWrapper ];
@@ -224,7 +224,7 @@
             };
 
             in
-              neovim-withExternalDependencies;
+              neovim-withDeps;
 
       in
       rec {
