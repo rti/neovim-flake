@@ -254,7 +254,7 @@
             # Language servers
 
             # JavaScript / Typescript
-            nodePackages.javascript-typescript-langserver
+            nodePackages.typescript-language-server
             # NIX
             rnix-lsp
 
