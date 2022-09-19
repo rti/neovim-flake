@@ -709,22 +709,6 @@
         "type": "github"
       }
     },
-    "plugin:nvim-treesitter_nvim-treesitter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1663600973,
-        "narHash": "sha256-YuuEE0rkgoTghLIuk0OgauzxmLXYIqENA+6tc3pOu80=",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "rev": "dc621c0bd7a34d9321217575d2092115760e8a97",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "type": "github"
-      }
-    },
     "plugin:nvim-treesitter_nvim-treesitter-textobjects": {
       "flake": false,
       "locked": {
@@ -1122,7 +1106,6 @@
         "plugin:nvim-lualine_lualine.nvim": "plugin:nvim-lualine_lualine.nvim",
         "plugin:nvim-telescope_telescope-dap.nvim": "plugin:nvim-telescope_telescope-dap.nvim",
         "plugin:nvim-telescope_telescope.nvim": "plugin:nvim-telescope_telescope.nvim",
-        "plugin:nvim-treesitter_nvim-treesitter": "plugin:nvim-treesitter_nvim-treesitter",
         "plugin:nvim-treesitter_nvim-treesitter-textobjects": "plugin:nvim-treesitter_nvim-treesitter-textobjects",
         "plugin:onedark-vim": "plugin:onedark-vim",
         "plugin:p00f_nvim-ts-rainbow": "plugin:p00f_nvim-ts-rainbow",

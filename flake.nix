@@ -22,7 +22,7 @@
 
     "plugin:kyazdani42_nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
 
-    "plugin:nvim-treesitter_nvim-treesitter" = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; };
+    /* "plugin:nvim-treesitter_nvim-treesitter" = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; }; */
     "plugin:nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
     "plugin:JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
     "plugin:windwp_nvim-ts-autotag" = { url = "github:windwp/nvim-ts-autotag"; flake = false; };
@@ -252,7 +252,7 @@
             bat
 
             # Treesitter
-            gcc
+            /* gcc */
 
             # Language servers
 
