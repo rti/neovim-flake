@@ -165,8 +165,6 @@
         #
         # Parameters:
         # customRC | your init.vim as string
-        # viAlias  | allow calling neovim using `vi`
-        # vimAlias | allow calling neovim using `vim`
         # start    | The set of plugins to load on every startup
         #          | The list is in the form ["yourPluginName" "anotherPluginYouLike"];
         #          |
@@ -191,8 +189,6 @@
         #          | explicitly loaded from inside neovim
         neovimBuilder = { 
           customRC  ? "", 
-          viAlias   ? true, 
-          vimAlias  ? true,
           start     ? builtins.attrValues pkgs.neovimPlugins, 
           opt       ? [], 
           debug     ? false, 
@@ -205,8 +201,8 @@
             });
 
             neovim-wrapped = pkgs.wrapNeovim myNeovimUnwrapped {
-              inherit viAlias;
-              inherit vimAlias;
+              viAlias = true;
+              vimAlias = true;
               configure = {
                 customRC = customRC;
                 packages.myVimPackage = with pkgs.neovimPlugins; {
