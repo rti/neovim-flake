@@ -2,7 +2,8 @@
   description = "rti Neovim, based on Luca's simple Neovim flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/release-22.05";
+    /* nixpkgs.url = "nixpkgs/release-22.05"; */
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/flake-utils";
