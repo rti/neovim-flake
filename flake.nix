@@ -196,7 +196,7 @@
             let
             neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
               /* # TODO find out why this is here */
-              propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ];
+              /* propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ]; */
               patches = (prev.patches or []) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
             });
 
