@@ -4,6 +4,10 @@ Based on [Quoteme/neovim-luca](https://github.com/Quoteme/neovim-luca).
 
 ## Installation
 
+### TODO
+
+Set GITHUB_TOKEN env var to avoid api rate limit
+
 ### Run over the internet
 
 `nix run github:rti/neovim-flake /some/file`
