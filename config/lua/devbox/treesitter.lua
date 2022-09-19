@@ -7,7 +7,8 @@ function M.setup()
   require('nvim-treesitter.configs').setup({
     -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     -- ensure_installed = "maintained",
-    ensure_installed = "all",
+    -- ensure_installed = "all",
+    -- ensure_installed = "nix,rust",
 
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,
