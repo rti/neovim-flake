@@ -206,7 +206,9 @@
               configure = {
                 customRC = customRC;
                 packages.myVimPackage = with pkgs.neovimPlugins; {
-                  start = start;
+                  /* start = start; */
+                  start = start ++ [ 
+                    (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) ];
                   opt = opt;
                 };
               };
