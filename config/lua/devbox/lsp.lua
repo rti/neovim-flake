@@ -222,7 +222,7 @@ local function setup_lspconfig_servers()
     'jsonls',
     --'pylsp',
     --'rust_analyzer',
-    --'sumneko_lua',
+    'sumneko_lua',
     'tailwindcss',
     'tsserver',
     'vuels',
