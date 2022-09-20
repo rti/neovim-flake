@@ -56,6 +56,21 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1663661391,
+        "narHash": "sha256-jja7QQRZQ7fH9/WhdMLwT08l62Z8vWee+e+VpFy0ikA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e64df9c5c8ffa0c9a82006e410ad630e32e6063d",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "release-22.05",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
         "lastModified": 1663494472,
         "narHash": "sha256-fSowlaoXXWcAM8m9wA6u+eTJJtvruYHMA+Lb/tFi/qM=",
         "owner": "NixOS",
@@ -725,22 +740,6 @@
         "type": "github"
       }
     },
-    "plugin:onedark-vim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1658129205,
-        "narHash": "sha256-mEzN3y5knjwdSE47qnsw3/7iHqkPA/E5yy/yFrm7UKY=",
-        "owner": "joshdick",
-        "repo": "onedark.vim",
-        "rev": "1fe54f212f09a03c2b5e277f0fe5b7b9d0b0a4ed",
-        "type": "github"
-      },
-      "original": {
-        "owner": "joshdick",
-        "repo": "onedark.vim",
-        "type": "github"
-      }
-    },
     "plugin:p00f_nvim-ts-rainbow": {
       "flake": false,
       "locked": {
@@ -1066,6 +1065,7 @@
         "flake-utils": "flake-utils",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "plugin:JoosepAlviste_nvim-ts-context-commentstring": "plugin:JoosepAlviste_nvim-ts-context-commentstring",
         "plugin:Mofiqul_adwaita.nvim": "plugin:Mofiqul_adwaita.nvim",
         "plugin:NTBBloodbath_rest.nvim": "plugin:NTBBloodbath_rest.nvim",
@@ -1107,7 +1107,6 @@
         "plugin:nvim-telescope_telescope-dap.nvim": "plugin:nvim-telescope_telescope-dap.nvim",
         "plugin:nvim-telescope_telescope.nvim": "plugin:nvim-telescope_telescope.nvim",
         "plugin:nvim-treesitter_nvim-treesitter-textobjects": "plugin:nvim-treesitter_nvim-treesitter-textobjects",
-        "plugin:onedark-vim": "plugin:onedark-vim",
         "plugin:p00f_nvim-ts-rainbow": "plugin:p00f_nvim-ts-rainbow",
         "plugin:rafamadriz_friendly-snippets": "plugin:rafamadriz_friendly-snippets",
         "plugin:ray-x_lsp_signature.nvim": "plugin:ray-x_lsp_signature.nvim",

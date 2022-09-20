@@ -2,20 +2,19 @@
   description = "rti Neovim, based on Luca's simple Neovim flake";
 
   inputs = {
-    /* nixpkgs.url = "nixpkgs/release-22.05"; */
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/release-22.05";
+
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
     flake-utils = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     neovim-flake = {
       url = "github:neovim/neovim/release-0.7?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    "plugin:onedark-vim" = { url = "github:joshdick/onedark.vim"; flake = false; };
-    /* "plugin:which-key" =   { url = "github:folke/which-key.nvim"; flake = false; }; */
 
     "plugin:nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     "plugin:nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
@@ -96,7 +95,7 @@
     "plugin:Mofiqul_adwaita.nvim" = { url = "github:Mofiqul/adwaita.nvim"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
         # Once we add this overlay to our nixpkgs, we are able to
@@ -116,7 +115,6 @@
         pluginOverlay = final: prev:
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
-            # treesitterGrammars = prev.tree-sitter.withPlugins (_: prev.tree-sitter.allGrammars);
             plugins = builtins.filter
               (s: (builtins.match "plugin:.*" s) != null)
               (builtins.attrNames inputs);
@@ -129,15 +127,7 @@
               pname = plugName name;
               version = "master";
               src = builtins.getAttr name inputs;
-
-              # Tree-sitter fails for a variety of lang grammars unless using :TSUpdate
-              # For now install imperatively
-              #postPatch =
-              #  if (name == "nvim-treesitter") then ''
-              #    rm -r parser
-              #    ln -s ${treesitterGrammars} parser
-              #  '' else "";
-            };
+           };
           in
           {
             neovimPlugins = builtins.listToAttrs (map
@@ -157,6 +147,10 @@
               neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim;
             })
           ];
+        };
+
+        pkgs-unstable = import nixpkgs-unstable {
+          inherit system;
         };
 
         # neovimBuilder is a function that takes your prefered
@@ -188,11 +182,11 @@
         #          | to your imports!
         # opt      | List of optional plugins to load only when
         #          | explicitly loaded from inside neovim
-        neovimBuilder = { 
-          customRC  ? "", 
-          start     ? builtins.attrValues pkgs.neovimPlugins, 
-          opt       ? [], 
-          debug     ? false, 
+        neovimBuilder = {
+          customRC  ? "",
+          start     ? builtins.attrValues pkgs.neovimPlugins,
+          opt       ? [],
+          debug     ? false,
           depencies ? []}:
             let
             neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
@@ -208,8 +202,8 @@
                 customRC = customRC;
                 packages.myVimPackage = with pkgs.neovimPlugins; {
                   /* start = start; */
-                  start = start ++ [ 
-                    (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) ];
+                  start = start ++ [
+                    (pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins (_: pkgs-unstable.tree-sitter.allGrammars)) ];
                   opt = opt;
                 };
               };
