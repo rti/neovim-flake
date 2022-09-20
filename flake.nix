@@ -215,6 +215,7 @@
 
             # JavaScript / Typescript
             nodePackages.typescript-language-server
+            nodePackages.eslint_d
 
             # NIX
             rnix-lsp
