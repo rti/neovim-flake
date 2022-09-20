@@ -95,7 +95,7 @@
     "plugin:Mofiqul_adwaita.nvim" = { url = "github:Mofiqul/adwaita.nvim"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... } @ inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
         # Once we add this overlay to our nixpkgs, we are able to
@@ -153,42 +153,8 @@
           inherit system;
         };
 
-        # neovimBuilder is a function that takes your prefered
-        # configuration as input and just returns a version of
-        # neovim where the default config was overwritten with your
-        # config.
-        #
-        # Parameters:
-        # customRC | your init.vim as string
-        # start    | The set of plugins to load on every startup
-        #          | The list is in the form ["yourPluginName" "anotherPluginYouLike"];
-        #          |
-        #          | Important: The default is to load all plugins, if
-        #          |            `start = [ "blabla" "blablabla" ]` is
-        #          |            not passed as an argument to neovimBuilder!
-        #          |
-        #          | Make sure to add:
-        #          | ```
-        #          | "plugin:yourPluginName" = {
-        #          |   url   = "github:exampleAuthor/examplePlugin";
-        #          |   flake = false;
-        #          | };
-        #          |
-        #          | "plugin:anotherPluginYouLike" = {
-        #          |   url   = "github:exampleAuthor/examplePlugin";
-        #          |   flake = false;
-        #          | };
-        #          | ```
-        #          | to your imports!
-        # opt      | List of optional plugins to load only when
-        #          | explicitly loaded from inside neovim
-        neovimBuilder = {
-          customRC  ? "",
-          start     ? builtins.attrValues pkgs.neovimPlugins,
-          opt       ? [],
-          debug     ? false,
-          depencies ? []}:
-            let
+        neovimBuilder = { customRC, dependencies }:
+          let
             neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
               /* # TODO find out why this is here */
               /* propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ]; */
@@ -201,17 +167,17 @@
               configure = {
                 customRC = customRC;
                 packages.myVimPackage = with pkgs.neovimPlugins; {
-                  /* start = start; */
-                  start = start ++ [
-                    (pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins (_: pkgs-unstable.tree-sitter.allGrammars)) ];
-                  opt = opt;
+                  start = 
+                    builtins.attrValues pkgs.neovimPlugins ++ 
+                    [ (pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins (_: 
+                      pkgs-unstable.tree-sitter.allGrammars)) ];
                 };
               };
             };
 
             neovim-withDeps = pkgs.symlinkJoin {
               name = "neovim";
-              paths = with pkgs; [ neovim-wrapped ] ++ depencies;
+              paths = with pkgs; [ neovim-wrapped ] ++ dependencies;
               nativeBuildInputs = [ pkgs.makeWrapper ];
               postBuild = ''
                 wrapProgram $out/bin/nvim \
@@ -238,12 +204,9 @@
             set rtp+=${./.}/config
             runtime init.lua
           '';
-          start = (builtins.attrValues pkgs.neovimPlugins);
-          depencies = with pkgs; [
+          dependencies = with pkgs; [
             # Telescope
-            fd
-            ripgrep
-            bat
+            fd ripgrep bat
 
             # Treesitter
             /* gcc */
@@ -252,6 +215,7 @@
 
             # JavaScript / Typescript
             nodePackages.typescript-language-server
+
             # NIX
             rnix-lsp
 
