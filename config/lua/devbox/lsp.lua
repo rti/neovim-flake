@@ -82,7 +82,7 @@ local function on_attach(client, bufnr)
   wk.register({
     ["<leader>rn"] = { "<cmd>LspRename<cr>", "LSP rename" },
   }, { buffer = bufnr })
-  
+
   vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
   -- mapbuf(bufnr, 'n', '<leader>ca', ':LspCodeAction<CR>')
   -- mapbuf(bufnr, 'n', '<leader>ca', ':CodeActionMenu<CR>') -- weilbith/nvim-code-action-menu
@@ -214,9 +214,9 @@ end
 local function setup_lspconfig_servers()
   local servers = {
     'bashls',
-    'clangd',
+    -- 'clangd',
     'cssls',
-    'dockerls', 
+    'dockerls',
     'graphql',
     'html',
     'jsonls',
@@ -226,6 +226,7 @@ local function setup_lspconfig_servers()
     'sumneko_lua',
     'tailwindcss',
     'tsserver',
+    'vimls',
     'vuels',
   }
 
@@ -265,9 +266,10 @@ local function setup_lspconfig_servers()
       -- config.filetypes = { "vue", "typescript", "javascript" }
 
     elseif server == 'tsserver' then
-      config.cmd = {'typescript-language-server', '--stdio', '--tsserver-log-file', '/tmp/tsserver.log', '--log-level', '4'}
+      config.cmd = {'typescript-language-server', '--stdio' }
 
     elseif server == 'jsonls' then
+      config.cmd = {'vscode-json-languageserver', '--stdio' }
       config.commands = {
         -- use range format for full document formating as well
         Format = {

@@ -21,7 +21,6 @@
 
     "plugin:kyazdani42_nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
 
-    /* "plugin:nvim-treesitter_nvim-treesitter" = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; }; */
     "plugin:nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
     "plugin:JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
     "plugin:windwp_nvim-ts-autotag" = { url = "github:windwp/nvim-ts-autotag"; flake = false; };
@@ -180,6 +179,13 @@
               paths = with pkgs; [ neovim-wrapped ] ++ dependencies;
               nativeBuildInputs = [ pkgs.makeWrapper ];
               postBuild = ''
+                # symlinkJoin can't handle symlinked dirs and nodePackages
+                # symlinks ./bin -> ./lib/node_modules/.bin/.
+                for f in $out/lib/node_modules/.bin/*; do
+                   path="$(readlink --canonicalize-missing "$f")"
+                   ln -s "$path" "$out/bin/$(basename $f)"
+                done
+
                 wrapProgram $out/bin/nvim \
                 --prefix PATH : $out/bin \
                 --set JAVA_HOME ${pkgs.jdk11}
@@ -206,16 +212,35 @@
           '';
           dependencies = with pkgs; [
             # Telescope
-            fd ripgrep bat
-
-            # Treesitter
-            /* gcc */
+            fd 
+            ripgrep 
+            bat
 
             # Language servers
 
+            # bash
+            nodePackages.bash-language-server
+
             # JavaScript / Typescript
+            nodejs_latest
             nodePackages.typescript-language-server
             nodePackages.eslint_d
+
+            # HTML / CSS
+            nodePackages.vscode-html-languageserver-bin
+            nodePackages.vscode-css-languageserver-bin
+
+            # Tailwind
+            nodePackages."@tailwindcss/language-server"
+
+            # JSON
+            nodePackages.vscode-json-languageserver
+
+            # Vue VLS Vetur
+            nodePackages.vls
+
+            # GraphQL (not in stable yet 22.05)
+            pkgs-unstable.nodePackages.graphql-language-service-cli
 
             # NIX
             rnix-lsp
@@ -229,6 +254,10 @@
 
             # Lua
             sumneko-lua-language-server
+            stylua
+
+            # Vim
+            nodePackages.vim-language-server
 
             # Spelling and grammar
             languagetool
