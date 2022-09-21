@@ -155,8 +155,6 @@
         neovimBuilder = { customRC, dependencies }:
           let
             neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
-              /* # TODO find out why this is here */
-              /* propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ]; */
               patches = (prev.patches or []) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
             });
 
@@ -172,28 +170,13 @@
                       pkgs-unstable.tree-sitter.allGrammars)) ];
                 };
               };
+              extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_HOME ${pkgs.jdk11}";
             };
 
-            neovim-withDeps = pkgs.symlinkJoin {
-              name = "neovim";
-              paths = with pkgs; [ neovim-wrapped ] ++ dependencies;
-              nativeBuildInputs = [ pkgs.makeWrapper ];
-              postBuild = ''
-                # symlinkJoin can't handle symlinked dirs and nodePackages
-                # symlinks ./bin -> ./lib/node_modules/.bin/.
-                for f in $out/lib/node_modules/.bin/*; do
-                   path="$(readlink --canonicalize-missing "$f")"
-                   ln -s "$path" "$out/bin/$(basename $f)"
-                done
-
-                wrapProgram $out/bin/nvim \
-                --prefix PATH : $out/bin \
-                --set JAVA_HOME ${pkgs.jdk11}
-              '';
-            };
+            # TODO: bubblewrap directly over here
 
             in
-              neovim-withDeps;
+              neovim-wrapped;
 
       in
       rec {
