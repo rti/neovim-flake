@@ -201,10 +201,10 @@
 
             # Language servers
 
-            # bash
+            # Bash
             nodePackages.bash-language-server
 
-            # dockerls
+            # Docker
             nodePackages.dockerfile-language-server-nodejs
 
             # JavaScript / Typescript
@@ -231,7 +231,7 @@
             # NIX
             rnix-lsp
 
-            # Python
+            # Python (setup lsp in neovim)
             python39Packages.jedi-language-server
 
             # Java
