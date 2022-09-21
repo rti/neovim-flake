@@ -221,6 +221,9 @@
             # bash
             nodePackages.bash-language-server
 
+            # dockerls
+            nodePackages.dockerfile-language-server-nodejs
+
             # JavaScript / Typescript
             nodejs_latest
             nodePackages.typescript-language-server
