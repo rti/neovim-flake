@@ -350,6 +350,7 @@ function M.init_java_lsp()
   -- The command that starts the language server
   config.cmd = {
     'jdt-language-server',
+    -- TODO put this into $HOME/.cache/jdtls ?
     '-data', '/tmp/jdtls/workspaces/' .. workspace_dir,
   }
 
