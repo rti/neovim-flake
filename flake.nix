@@ -236,7 +236,7 @@
 
             # Java
             jdk11
-            java-language-server
+            pkgs-unstable.jdt-language-server
 
             # Lua
             sumneko-lua-language-server
