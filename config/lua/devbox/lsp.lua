@@ -349,36 +349,11 @@ function M.init_java_lsp()
 
   -- The command that starts the language server
   config.cmd = {
-    -- TODO: set fixed java version
-    'java',
-    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-    '-Dosgi.bundles.defaultStartLevel=4',
-    '-Declipse.product=org.eclipse.jdt.ls.core.product',
-    '-Dlog.protocol=true',
-    '-Dlog.level=ALL',
-
-    -- TODO: decide for memory settings
-    -- '-Xms1g',
-    -- '-Xmx2G',
-    -- TODO: what does noverify do?
-    '-noverify',
-    '-Xmx1G',
-    -- TODO: what does this do?
-    '-XX:+UseG1GC',
-    '-XX:+UseStringDeduplication',
-
-    '-jar', '/home/devbox/.local/lib/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-    '-configuration', '/home/devbox/.local/lib/jdtls/config_linux',
-
+    'jdt-language-server',
     '-data', '/tmp/jdtls/workspaces/' .. workspace_dir,
-
-    '--add-modules=ALL-SYSTEM',
-    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
   }
 
   config.root_dir = jdtls.setup.find_root({
-    -- TODO: review
     '.git',
     'mvnw',
     'gradlew'
