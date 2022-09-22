@@ -47,6 +47,7 @@ vim.opt.viewoptions = 'cursor,folds'               -- What to save with mkview
 vim.opt.whichwrap = 'b,s,h,l'                      -- TODO: what it this?
 vim.opt.wildignore = '*.d,*.lst,*.map,*.o,*/node_modules/*,*/dist/*'
 vim.opt.wrap = false                               -- Disable line wrap
+vim.opt.fillchars = 'diff: '                       -- Fill chars
 
 vim.cmd[[let &titlestring = "%t %m" . " — " . expand('%:p:h') . " — NeoVIM"]]
 
