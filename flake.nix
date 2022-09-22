@@ -16,82 +16,82 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    "plugin:nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; };
-    "plugin:nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
+    "plugin_nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; };
+    "plugin_nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
 
-    "plugin:kyazdani42_nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
+    "plugin_kyazdani42_nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
 
-    "plugin:nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
-    "plugin:JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
-    "plugin:windwp_nvim-ts-autotag" = { url = "github:windwp/nvim-ts-autotag"; flake = false; };
-    "plugin:p00f_nvim-ts-rainbow" = { url = "github:p00f/nvim-ts-rainbow"; flake = false; };
+    "plugin_nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
+    "plugin_JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
+    "plugin_windwp_nvim-ts-autotag" = { url = "github:windwp/nvim-ts-autotag"; flake = false; };
+    "plugin_p00f_nvim-ts-rainbow" = { url = "github:p00f/nvim-ts-rainbow"; flake = false; };
 
-    "plugin:neovim_nvim-lspconfig" = { url = "github:neovim/nvim-lspconfig"; flake = false; };
-    "plugin:jose-elias-alvarez_null-ls.nvim" = { url = "github:jose-elias-alvarez/null-ls.nvim"; flake = false; };
-    "plugin:j-hui_fidget.nvim" = { url = "github:j-hui/fidget.nvim"; flake = false; };
-    "plugin:mfussenegger_nvim-jdtls" = { url = "github:mfussenegger/nvim-jdtls"; flake = false; };
-    "plugin:SmiteshP_nvim-gps" = { url = "github:SmiteshP/nvim-gps"; flake = false; };
-    "plugin:simrat39_symbols-outline.nvim" = { url = "github:simrat39/symbols-outline.nvim"; flake = false; };
-    "plugin:kosayoda_nvim-lightbulb" = { url = "github:kosayoda/nvim-lightbulb"; flake = false; };
-    "plugin:weilbith_nvim-code-action-menu" = { url = "github:weilbith/nvim-code-action-menu"; flake = false; };
-    "plugin:ray-x_lsp_signature.nvim" = { url = "github:ray-x/lsp_signature.nvim"; flake = false; };
+    "plugin_neovim_nvim-lspconfig" = { url = "github:neovim/nvim-lspconfig"; flake = false; };
+    "plugin_jose-elias-alvarez_null-ls.nvim" = { url = "github:jose-elias-alvarez/null-ls.nvim"; flake = false; };
+    "plugin_j-hui_fidget.nvim" = { url = "github:j-hui/fidget.nvim"; flake = false; };
+    "plugin_mfussenegger_nvim-jdtls" = { url = "github:mfussenegger/nvim-jdtls"; flake = false; };
+    "plugin_SmiteshP_nvim-gps" = { url = "github:SmiteshP/nvim-gps"; flake = false; };
+    "plugin_simrat39_symbols-outline.nvim" = { url = "github:simrat39/symbols-outline.nvim"; flake = false; };
+    "plugin_kosayoda_nvim-lightbulb" = { url = "github:kosayoda/nvim-lightbulb"; flake = false; };
+    "plugin_weilbith_nvim-code-action-menu" = { url = "github:weilbith/nvim-code-action-menu"; flake = false; };
+    "plugin_ray-x_lsp_signature.nvim" = { url = "github:ray-x/lsp_signature.nvim"; flake = false; };
 
-    "plugin:hrsh7th_nvim-cmp" = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
-    "plugin:hrsh7th_cmp-path" = { url = "github:hrsh7th/cmp-path"; flake = false; };
-    "plugin:hrsh7th_cmp-cmdline" = { url = "github:hrsh7th/cmp-cmdline"; flake = false; };
-    "plugin:hrsh7th_cmp-nvim-lsp" = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
-    "plugin:hrsh7th_cmp-nvim-lsp-signature-help" = { url = "github:hrsh7th/cmp-nvim-lsp-signature-help"; flake = false; };
-    "plugin:hrsh7th_cmp-buffer" = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
-    "plugin:hrsh7th_cmp-vsnip" = { url = "github:hrsh7th/cmp-vsnip"; flake = false; };
-    "plugin:hrsh7th_vim-vsnip" = { url = "github:hrsh7th/vim-vsnip"; flake = false; };
-    "plugin:rafamadriz_friendly-snippets" = { url = "github:rafamadriz/friendly-snippets"; flake = false; };
-    "plugin:windwp_nvim-autopairs" = { url = "github:windwp/nvim-autopairs"; flake = false; };
+    "plugin_hrsh7th_nvim-cmp" = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
+    "plugin_hrsh7th_cmp-path" = { url = "github:hrsh7th/cmp-path"; flake = false; };
+    "plugin_hrsh7th_cmp-cmdline" = { url = "github:hrsh7th/cmp-cmdline"; flake = false; };
+    "plugin_hrsh7th_cmp-nvim-lsp" = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
+    "plugin_hrsh7th_cmp-nvim-lsp-signature-help" = { url = "github:hrsh7th/cmp-nvim-lsp-signature-help"; flake = false; };
+    "plugin_hrsh7th_cmp-buffer" = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
+    "plugin_hrsh7th_cmp-vsnip" = { url = "github:hrsh7th/cmp-vsnip"; flake = false; };
+    "plugin_hrsh7th_vim-vsnip" = { url = "github:hrsh7th/vim-vsnip"; flake = false; };
+    "plugin_rafamadriz_friendly-snippets" = { url = "github:rafamadriz/friendly-snippets"; flake = false; };
+    "plugin_windwp_nvim-autopairs" = { url = "github:windwp/nvim-autopairs"; flake = false; };
 
-    "plugin:nvim-telescope_telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
+    "plugin_nvim-telescope_telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
 
-    "plugin:tpope_vim-surround" = { url = "github:tpope/vim-surround"; flake = false; };
-    "plugin:tpope_vim-speeddating" = { url = "github:tpope/vim-speeddating"; flake = false; };
-    "plugin:tpope_vim-repeat" = { url = "github:tpope/vim-repeat"; flake = false; };
-    "plugin:tpope_vim-commentary" = { url = "github:tpope/vim-commentary"; flake = false; };
+    "plugin_tpope_vim-surround" = { url = "github:tpope/vim-surround"; flake = false; };
+    "plugin_tpope_vim-speeddating" = { url = "github:tpope/vim-speeddating"; flake = false; };
+    "plugin_tpope_vim-repeat" = { url = "github:tpope/vim-repeat"; flake = false; };
+    "plugin_tpope_vim-commentary" = { url = "github:tpope/vim-commentary"; flake = false; };
 
-    "plugin:tpope_vim-fugitive" = { url = "github:tpope/vim-fugitive"; flake = false; };
-    "plugin:lewis6991_gitsigns.nvim" = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
-    "plugin:sindrets_diffview.nvim" = { url = "github:sindrets/diffview.nvim"; flake = false; };
+    "plugin_tpope_vim-fugitive" = { url = "github:tpope/vim-fugitive"; flake = false; };
+    "plugin_lewis6991_gitsigns.nvim" = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
+    "plugin_sindrets_diffview.nvim" = { url = "github:sindrets/diffview.nvim"; flake = false; };
 
-    "plugin:bkad_CamelCaseMotion" = { url = "github:bkad/CamelCaseMotion"; flake = false; };
-    "plugin:famiu_bufdelete.nvim" = { url = "github:famiu/bufdelete.nvim"; flake = false; };
+    "plugin_bkad_CamelCaseMotion" = { url = "github:bkad/CamelCaseMotion"; flake = false; };
+    "plugin_famiu_bufdelete.nvim" = { url = "github:famiu/bufdelete.nvim"; flake = false; };
 
-    "plugin:sbdchd_neoformat" = { url = "github:sbdchd/neoformat"; flake = false; };
+    "plugin_sbdchd_neoformat" = { url = "github:sbdchd/neoformat"; flake = false; };
 
-    "plugin:Pocco81_auto-save.nvim" = { url = "github:Pocco81/auto-save.nvim"; flake = false; };
-    "plugin:airblade_vim-rooter" = { url = "github:airblade/vim-rooter"; flake = false; };
-    "plugin:kyazdani42_nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
-    "plugin:tpope_vim-sleuth" = { url = "github:tpope/vim-sleuth"; flake = false; };
+    "plugin_Pocco81_auto-save.nvim" = { url = "github:Pocco81/auto-save.nvim"; flake = false; };
+    "plugin_airblade_vim-rooter" = { url = "github:airblade/vim-rooter"; flake = false; };
+    "plugin_kyazdani42_nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
+    "plugin_tpope_vim-sleuth" = { url = "github:tpope/vim-sleuth"; flake = false; };
 
-    "plugin:jamessan_vim-gnupg" = { url = "github:jamessan/vim-gnupg"; flake = false; };
-    "plugin:NTBBloodbath_rest.nvim" = { url = "github:NTBBloodbath/rest.nvim"; flake = false; };
-    "plugin:leafOfTree_vim-vue-plugin" = { url = "github:leafOfTree/vim-vue-plugin"; flake = false; };
-    "plugin:tyru_open-browser.vim" = { url = "github:tyru/open-browser.vim"; flake = false; };
+    "plugin_jamessan_vim-gnupg" = { url = "github:jamessan/vim-gnupg"; flake = false; };
+    "plugin_NTBBloodbath_rest.nvim" = { url = "github:NTBBloodbath/rest.nvim"; flake = false; };
+    "plugin_leafOfTree_vim-vue-plugin" = { url = "github:leafOfTree/vim-vue-plugin"; flake = false; };
+    "plugin_tyru_open-browser.vim" = { url = "github:tyru/open-browser.vim"; flake = false; };
 
-    "plugin:bfredl_nvim-luadev" = { url = "github:bfredl/nvim-luadev"; flake = false; };
-    "plugin:mfussenegger_nvim-dap" = { url = "github:mfussenegger/nvim-dap"; flake = false; };
-    "plugin:theHamsta_nvim-dap-virtual-text" = { url = "github:theHamsta/nvim-dap-virtual-text"; flake = false; };
-    "plugin:rcarriga_nvim-dap-ui" = { url = "github:rcarriga/nvim-dap-ui"; flake = false; };
-    "plugin:nvim-telescope_telescope-dap.nvim" = { url = "github:nvim-telescope/telescope-dap.nvim"; flake = false; };
+    "plugin_bfredl_nvim-luadev" = { url = "github:bfredl/nvim-luadev"; flake = false; };
+    "plugin_mfussenegger_nvim-dap" = { url = "github:mfussenegger/nvim-dap"; flake = false; };
+    "plugin_theHamsta_nvim-dap-virtual-text" = { url = "github:theHamsta/nvim-dap-virtual-text"; flake = false; };
+    "plugin_rcarriga_nvim-dap-ui" = { url = "github:rcarriga/nvim-dap-ui"; flake = false; };
+    "plugin_nvim-telescope_telescope-dap.nvim" = { url = "github:nvim-telescope/telescope-dap.nvim"; flake = false; };
 
-    "plugin:akinsho_toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
+    "plugin_akinsho_toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
 
-    "plugin:stevearc_dressing.nvim" = { url = "github:stevearc/dressing.nvim"; flake = false; };
-    "plugin:folke_zen-mode.nvim" = { url = "github:folke/zen-mode.nvim"; flake = false; };
-    "plugin:nvim-lualine_lualine.nvim" = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
-    "plugin:folke_which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
-    "plugin:luukvbaal_stabilize.nvim" = { url = "github:luukvbaal/stabilize.nvim"; flake = false; };
-    "plugin:glepnir_dashboard-nvim" = { url = "github:glepnir/dashboard-nvim"; flake = false; };
+    "plugin_stevearc_dressing.nvim" = { url = "github:stevearc/dressing.nvim"; flake = false; };
+    "plugin_folke_zen-mode.nvim" = { url = "github:folke/zen-mode.nvim"; flake = false; };
+    "plugin_nvim-lualine_lualine.nvim" = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
+    "plugin_folke_which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
+    "plugin_luukvbaal_stabilize.nvim" = { url = "github:luukvbaal/stabilize.nvim"; flake = false; };
+    "plugin_glepnir_dashboard-nvim" = { url = "github:glepnir/dashboard-nvim"; flake = false; };
 
-    "plugin:norcalli_nvim-colorizer.lua" = { url = "github:norcalli/nvim-colorizer.lua"; flake = false; };
-    "plugin:rktjmp_lush.nvim" = { url = "github:rktjmp/lush.nvim"; flake = false; };
-    "plugin:mcchrish_zenbones.nvim" = { url = "github:mcchrish/zenbones.nvim"; flake = false; };
-    "plugin:Mofiqul_adwaita.nvim" = { url = "github:Mofiqul/adwaita.nvim"; flake = false; };
+    "plugin_norcalli_nvim-colorizer.lua" = { url = "github:norcalli/nvim-colorizer.lua"; flake = false; };
+    "plugin_rktjmp_lush.nvim" = { url = "github:rktjmp/lush.nvim"; flake = false; };
+    "plugin_mcchrish_zenbones.nvim" = { url = "github:mcchrish/zenbones.nvim"; flake = false; };
+    "plugin_Mofiqul_adwaita.nvim" = { url = "github:Mofiqul/adwaita.nvim"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... } @ inputs:
@@ -101,7 +101,7 @@
         # use `pkgs.neovimPlugins`, which is a map of our plugins.
         # Each input in the format:
         # ```
-        # "plugin:yourPluginName" = {
+        # "plugin_yourPluginName" = {
         #   url   = "github:exampleAuthor/examplePlugin";
         #   flake = false;
         # };
@@ -115,11 +115,11 @@
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
             plugins = builtins.filter
-              (s: (builtins.match "plugin:.*" s) != null)
+              (s: (builtins.match "plugin_.*" s) != null)
               (builtins.attrNames inputs);
             plugName = input:
               builtins.substring
-                (builtins.stringLength "plugin:")
+                (builtins.stringLength "plugin_")
                 (builtins.stringLength input)
                 input;
             buildPlug = name: buildVimPluginFrom2Nix {

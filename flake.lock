@@ -84,7 +84,7 @@
         "type": "indirect"
       }
     },
-    "plugin:JoosepAlviste_nvim-ts-context-commentstring": {
+    "plugin_JoosepAlviste_nvim-ts-context-commentstring": {
       "flake": false,
       "locked": {
         "lastModified": 1661490854,
@@ -100,7 +100,7 @@
         "type": "github"
       }
     },
-    "plugin:Mofiqul_adwaita.nvim": {
+    "plugin_Mofiqul_adwaita.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1660265338,
@@ -116,7 +116,7 @@
         "type": "github"
       }
     },
-    "plugin:NTBBloodbath_rest.nvim": {
+    "plugin_NTBBloodbath_rest.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1661713214,
@@ -132,7 +132,7 @@
         "type": "github"
       }
     },
-    "plugin:Pocco81_auto-save.nvim": {
+    "plugin_Pocco81_auto-save.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1659824161,
@@ -148,7 +148,7 @@
         "type": "github"
       }
     },
-    "plugin:SmiteshP_nvim-gps": {
+    "plugin_SmiteshP_nvim-gps": {
       "flake": false,
       "locked": {
         "lastModified": 1656991502,
@@ -164,7 +164,7 @@
         "type": "github"
       }
     },
-    "plugin:airblade_vim-rooter": {
+    "plugin_airblade_vim-rooter": {
       "flake": false,
       "locked": {
         "lastModified": 1627488712,
@@ -180,7 +180,7 @@
         "type": "github"
       }
     },
-    "plugin:akinsho_toggleterm.nvim": {
+    "plugin_akinsho_toggleterm.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663537490,
@@ -196,7 +196,7 @@
         "type": "github"
       }
     },
-    "plugin:bfredl_nvim-luadev": {
+    "plugin_bfredl_nvim-luadev": {
       "flake": false,
       "locked": {
         "lastModified": 1643236404,
@@ -212,7 +212,7 @@
         "type": "github"
       }
     },
-    "plugin:bkad_CamelCaseMotion": {
+    "plugin_bkad_CamelCaseMotion": {
       "flake": false,
       "locked": {
         "lastModified": 1575314139,
@@ -228,7 +228,7 @@
         "type": "github"
       }
     },
-    "plugin:famiu_bufdelete.nvim": {
+    "plugin_famiu_bufdelete.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1653205505,
@@ -244,7 +244,7 @@
         "type": "github"
       }
     },
-    "plugin:folke_which-key.nvim": {
+    "plugin_folke_which-key.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663503432,
@@ -260,7 +260,7 @@
         "type": "github"
       }
     },
-    "plugin:folke_zen-mode.nvim": {
+    "plugin_folke_zen-mode.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1662368212,
@@ -276,7 +276,7 @@
         "type": "github"
       }
     },
-    "plugin:glepnir_dashboard-nvim": {
+    "plugin_glepnir_dashboard-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663320903,
@@ -292,7 +292,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_cmp-buffer": {
+    "plugin_hrsh7th_cmp-buffer": {
       "flake": false,
       "locked": {
         "lastModified": 1660101488,
@@ -308,7 +308,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_cmp-cmdline": {
+    "plugin_hrsh7th_cmp-cmdline": {
       "flake": false,
       "locked": {
         "lastModified": 1663329933,
@@ -324,7 +324,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_cmp-nvim-lsp": {
+    "plugin_hrsh7th_cmp-nvim-lsp": {
       "flake": false,
       "locked": {
         "lastModified": 1652705110,
@@ -340,7 +340,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_cmp-nvim-lsp-signature-help": {
+    "plugin_hrsh7th_cmp-nvim-lsp-signature-help": {
       "flake": false,
       "locked": {
         "lastModified": 1660986979,
@@ -356,7 +356,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_cmp-path": {
+    "plugin_hrsh7th_cmp-path": {
       "flake": false,
       "locked": {
         "lastModified": 1658844613,
@@ -372,7 +372,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_cmp-vsnip": {
+    "plugin_hrsh7th_cmp-vsnip": {
       "flake": false,
       "locked": {
         "lastModified": 1636543683,
@@ -388,7 +388,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_nvim-cmp": {
+    "plugin_hrsh7th_nvim-cmp": {
       "flake": false,
       "locked": {
         "lastModified": 1662608907,
@@ -404,7 +404,7 @@
         "type": "github"
       }
     },
-    "plugin:hrsh7th_vim-vsnip": {
+    "plugin_hrsh7th_vim-vsnip": {
       "flake": false,
       "locked": {
         "lastModified": 1650631622,
@@ -420,7 +420,7 @@
         "type": "github"
       }
     },
-    "plugin:j-hui_fidget.nvim": {
+    "plugin_j-hui_fidget.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1658719305,
@@ -436,7 +436,7 @@
         "type": "github"
       }
     },
-    "plugin:jamessan_vim-gnupg": {
+    "plugin_jamessan_vim-gnupg": {
       "flake": false,
       "locked": {
         "lastModified": 1652927127,
@@ -452,14 +452,14 @@
         "type": "github"
       }
     },
-    "plugin:jose-elias-alvarez_null-ls.nvim": {
+    "plugin_jose-elias-alvarez_null-ls.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1663600262,
-        "narHash": "sha256-U5dTUfn3huKqK+Ur474ggkOz/PEpVhjoKlVwcg/hLrY=",
+        "lastModified": 1663854462,
+        "narHash": "sha256-koDIfufugWF/bh1hsurX57L9hfmpcVbZ1FBuAx/0ASA=",
         "owner": "jose-elias-alvarez",
         "repo": "null-ls.nvim",
-        "rev": "1533257895fa953c004f88c1d9476af50b721c7d",
+        "rev": "8af89c5fa2b732aaa9c3bf8aed95bccc9c4ce295",
         "type": "github"
       },
       "original": {
@@ -468,7 +468,7 @@
         "type": "github"
       }
     },
-    "plugin:kosayoda_nvim-lightbulb": {
+    "plugin_kosayoda_nvim-lightbulb": {
       "flake": false,
       "locked": {
         "lastModified": 1661474119,
@@ -484,14 +484,14 @@
         "type": "github"
       }
     },
-    "plugin:kyazdani42_nvim-tree.lua": {
+    "plugin_kyazdani42_nvim-tree.lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1663480849,
-        "narHash": "sha256-/GNQ2kRgz/osxDqovtGwwtYTKtpUz5qq8xpVVkt6ZRQ=",
+        "lastModified": 1663823703,
+        "narHash": "sha256-QY60TDUVmKcFzCAojReZEAbQcyEYgCG4nhgsx74OtVM=",
         "owner": "kyazdani42",
         "repo": "nvim-tree.lua",
-        "rev": "3676e0b124c2a132857e2bbcf7f48f05228f1052",
+        "rev": "0417d9148b6546bf4883b6e9750f992f980afbfe",
         "type": "github"
       },
       "original": {
@@ -500,7 +500,7 @@
         "type": "github"
       }
     },
-    "plugin:kyazdani42_nvim-web-devicons": {
+    "plugin_kyazdani42_nvim-web-devicons": {
       "flake": false,
       "locked": {
         "lastModified": 1663532214,
@@ -516,7 +516,7 @@
         "type": "github"
       }
     },
-    "plugin:leafOfTree_vim-vue-plugin": {
+    "plugin_leafOfTree_vim-vue-plugin": {
       "flake": false,
       "locked": {
         "lastModified": 1655274174,
@@ -532,7 +532,7 @@
         "type": "github"
       }
     },
-    "plugin:lewis6991_gitsigns.nvim": {
+    "plugin_lewis6991_gitsigns.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663543397,
@@ -548,7 +548,7 @@
         "type": "github"
       }
     },
-    "plugin:luukvbaal_stabilize.nvim": {
+    "plugin_luukvbaal_stabilize.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1657335252,
@@ -564,7 +564,7 @@
         "type": "github"
       }
     },
-    "plugin:mcchrish_zenbones.nvim": {
+    "plugin_mcchrish_zenbones.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663501036,
@@ -580,14 +580,14 @@
         "type": "github"
       }
     },
-    "plugin:mfussenegger_nvim-dap": {
+    "plugin_mfussenegger_nvim-dap": {
       "flake": false,
       "locked": {
-        "lastModified": 1663612266,
-        "narHash": "sha256-zcz8XZXFIHdBM/dHBEXIOfDE+fRSXfDzKZRzKaEGD/Q=",
+        "lastModified": 1663859189,
+        "narHash": "sha256-v+2F44ApBfLQKIMvyWMmvOkcoIcqdAmQXf5YNXmGor4=",
         "owner": "mfussenegger",
         "repo": "nvim-dap",
-        "rev": "e12496beb5e231ca9148c0a380ec784a607a27df",
+        "rev": "3c3e0a82457e2279563510ca16ae71279687c19c",
         "type": "github"
       },
       "original": {
@@ -596,7 +596,7 @@
         "type": "github"
       }
     },
-    "plugin:mfussenegger_nvim-jdtls": {
+    "plugin_mfussenegger_nvim-jdtls": {
       "flake": false,
       "locked": {
         "lastModified": 1663526951,
@@ -612,7 +612,7 @@
         "type": "github"
       }
     },
-    "plugin:neovim_nvim-lspconfig": {
+    "plugin_neovim_nvim-lspconfig": {
       "flake": false,
       "locked": {
         "lastModified": 1663166903,
@@ -628,7 +628,7 @@
         "type": "github"
       }
     },
-    "plugin:norcalli_nvim-colorizer.lua": {
+    "plugin_norcalli_nvim-colorizer.lua": {
       "flake": false,
       "locked": {
         "lastModified": 1591879145,
@@ -644,7 +644,7 @@
         "type": "github"
       }
     },
-    "plugin:nvim-lua_plenary.nvim": {
+    "plugin_nvim-lua_plenary.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663402373,
@@ -660,7 +660,7 @@
         "type": "github"
       }
     },
-    "plugin:nvim-lua_popup.nvim": {
+    "plugin_nvim-lua_popup.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1637254091,
@@ -676,7 +676,7 @@
         "type": "github"
       }
     },
-    "plugin:nvim-lualine_lualine.nvim": {
+    "plugin_nvim-lualine_lualine.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1662921346,
@@ -692,7 +692,7 @@
         "type": "github"
       }
     },
-    "plugin:nvim-telescope_telescope-dap.nvim": {
+    "plugin_nvim-telescope_telescope-dap.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1616786019,
@@ -708,7 +708,7 @@
         "type": "github"
       }
     },
-    "plugin:nvim-telescope_telescope.nvim": {
+    "plugin_nvim-telescope_telescope.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663402536,
@@ -724,7 +724,7 @@
         "type": "github"
       }
     },
-    "plugin:nvim-treesitter_nvim-treesitter-textobjects": {
+    "plugin_nvim-treesitter_nvim-treesitter-textobjects": {
       "flake": false,
       "locked": {
         "lastModified": 1662230703,
@@ -740,7 +740,7 @@
         "type": "github"
       }
     },
-    "plugin:p00f_nvim-ts-rainbow": {
+    "plugin_p00f_nvim-ts-rainbow": {
       "flake": false,
       "locked": {
         "lastModified": 1663390801,
@@ -756,7 +756,7 @@
         "type": "github"
       }
     },
-    "plugin:rafamadriz_friendly-snippets": {
+    "plugin_rafamadriz_friendly-snippets": {
       "flake": false,
       "locked": {
         "lastModified": 1663510869,
@@ -772,7 +772,7 @@
         "type": "github"
       }
     },
-    "plugin:ray-x_lsp_signature.nvim": {
+    "plugin_ray-x_lsp_signature.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1660573480,
@@ -788,14 +788,14 @@
         "type": "github"
       }
     },
-    "plugin:rcarriga_nvim-dap-ui": {
+    "plugin_rcarriga_nvim-dap-ui": {
       "flake": false,
       "locked": {
-        "lastModified": 1663617960,
-        "narHash": "sha256-ZTpnPC9QXH4nkgV1pnFqS7F4DXpkvxxuq4qjICmHyOA=",
+        "lastModified": 1663835826,
+        "narHash": "sha256-6xnfnS64gH6TxouPUus2jHNiMKCzwXM6RSU28FKKL00=",
         "owner": "rcarriga",
         "repo": "nvim-dap-ui",
-        "rev": "6c479642e79fa3df23e741f6f26c81a65e73d3fc",
+        "rev": "922a3479d3341aad4d20e7986660c74c57534e0c",
         "type": "github"
       },
       "original": {
@@ -804,7 +804,7 @@
         "type": "github"
       }
     },
-    "plugin:rktjmp_lush.nvim": {
+    "plugin_rktjmp_lush.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1663151043,
@@ -820,7 +820,7 @@
         "type": "github"
       }
     },
-    "plugin:sbdchd_neoformat": {
+    "plugin_sbdchd_neoformat": {
       "flake": false,
       "locked": {
         "lastModified": 1661997045,
@@ -836,7 +836,7 @@
         "type": "github"
       }
     },
-    "plugin:simrat39_symbols-outline.nvim": {
+    "plugin_simrat39_symbols-outline.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1661735056,
@@ -852,14 +852,14 @@
         "type": "github"
       }
     },
-    "plugin:sindrets_diffview.nvim": {
+    "plugin_sindrets_diffview.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1663518813,
-        "narHash": "sha256-Zmlho8ghFAkyMBlFZqD3er6re7g816fL5+t4UkSqSO4=",
+        "lastModified": 1663775836,
+        "narHash": "sha256-/VMIrKrwyy3AnI13ontmSOiUiBsr8uxugEIy8LSr/ww=",
         "owner": "sindrets",
         "repo": "diffview.nvim",
-        "rev": "5d3d11aad8deaaa3fec1968a2707846cfd12918a",
+        "rev": "579815945dbefc1cf10347941a6d2022b41d279c",
         "type": "github"
       },
       "original": {
@@ -868,14 +868,14 @@
         "type": "github"
       }
     },
-    "plugin:stevearc_dressing.nvim": {
+    "plugin_stevearc_dressing.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1663253010,
-        "narHash": "sha256-4j5vC8XsSSc/V9Vo5iMDT3AVlDoTAnMjancCs/EfoGk=",
+        "lastModified": 1663698522,
+        "narHash": "sha256-0cdN4HksAvhbcY8hU4+SlTqmT9Gj1yHR8NIMdswMqoI=",
         "owner": "stevearc",
         "repo": "dressing.nvim",
-        "rev": "fbc798c34c21a4d7914a41f5b2263af2f75750c8",
+        "rev": "76477792b34f8fed167b5aa61a325e4dab26c3d7",
         "type": "github"
       },
       "original": {
@@ -884,7 +884,7 @@
         "type": "github"
       }
     },
-    "plugin:theHamsta_nvim-dap-virtual-text": {
+    "plugin_theHamsta_nvim-dap-virtual-text": {
       "flake": false,
       "locked": {
         "lastModified": 1659739008,
@@ -900,7 +900,7 @@
         "type": "github"
       }
     },
-    "plugin:tpope_vim-commentary": {
+    "plugin_tpope_vim-commentary": {
       "flake": false,
       "locked": {
         "lastModified": 1648390923,
@@ -916,7 +916,7 @@
         "type": "github"
       }
     },
-    "plugin:tpope_vim-fugitive": {
+    "plugin_tpope_vim-fugitive": {
       "flake": false,
       "locked": {
         "lastModified": 1662284293,
@@ -932,7 +932,7 @@
         "type": "github"
       }
     },
-    "plugin:tpope_vim-repeat": {
+    "plugin_tpope_vim-repeat": {
       "flake": false,
       "locked": {
         "lastModified": 1611544268,
@@ -948,7 +948,7 @@
         "type": "github"
       }
     },
-    "plugin:tpope_vim-sleuth": {
+    "plugin_tpope_vim-sleuth": {
       "flake": false,
       "locked": {
         "lastModified": 1651168686,
@@ -964,7 +964,7 @@
         "type": "github"
       }
     },
-    "plugin:tpope_vim-speeddating": {
+    "plugin_tpope_vim-speeddating": {
       "flake": false,
       "locked": {
         "lastModified": 1619690923,
@@ -980,7 +980,7 @@
         "type": "github"
       }
     },
-    "plugin:tpope_vim-surround": {
+    "plugin_tpope_vim-surround": {
       "flake": false,
       "locked": {
         "lastModified": 1650669912,
@@ -996,7 +996,7 @@
         "type": "github"
       }
     },
-    "plugin:tyru_open-browser.vim": {
+    "plugin_tyru_open-browser.vim": {
       "flake": false,
       "locked": {
         "lastModified": 1633477838,
@@ -1012,7 +1012,7 @@
         "type": "github"
       }
     },
-    "plugin:weilbith_nvim-code-action-menu": {
+    "plugin_weilbith_nvim-code-action-menu": {
       "flake": false,
       "locked": {
         "lastModified": 1653835393,
@@ -1028,7 +1028,7 @@
         "type": "github"
       }
     },
-    "plugin:windwp_nvim-autopairs": {
+    "plugin_windwp_nvim-autopairs": {
       "flake": false,
       "locked": {
         "lastModified": 1663390467,
@@ -1044,7 +1044,7 @@
         "type": "github"
       }
     },
-    "plugin:windwp_nvim-ts-autotag": {
+    "plugin_windwp_nvim-ts-autotag": {
       "flake": false,
       "locked": {
         "lastModified": 1660219579,
@@ -1066,67 +1066,67 @@
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "plugin:JoosepAlviste_nvim-ts-context-commentstring": "plugin:JoosepAlviste_nvim-ts-context-commentstring",
-        "plugin:Mofiqul_adwaita.nvim": "plugin:Mofiqul_adwaita.nvim",
-        "plugin:NTBBloodbath_rest.nvim": "plugin:NTBBloodbath_rest.nvim",
-        "plugin:Pocco81_auto-save.nvim": "plugin:Pocco81_auto-save.nvim",
-        "plugin:SmiteshP_nvim-gps": "plugin:SmiteshP_nvim-gps",
-        "plugin:airblade_vim-rooter": "plugin:airblade_vim-rooter",
-        "plugin:akinsho_toggleterm.nvim": "plugin:akinsho_toggleterm.nvim",
-        "plugin:bfredl_nvim-luadev": "plugin:bfredl_nvim-luadev",
-        "plugin:bkad_CamelCaseMotion": "plugin:bkad_CamelCaseMotion",
-        "plugin:famiu_bufdelete.nvim": "plugin:famiu_bufdelete.nvim",
-        "plugin:folke_which-key.nvim": "plugin:folke_which-key.nvim",
-        "plugin:folke_zen-mode.nvim": "plugin:folke_zen-mode.nvim",
-        "plugin:glepnir_dashboard-nvim": "plugin:glepnir_dashboard-nvim",
-        "plugin:hrsh7th_cmp-buffer": "plugin:hrsh7th_cmp-buffer",
-        "plugin:hrsh7th_cmp-cmdline": "plugin:hrsh7th_cmp-cmdline",
-        "plugin:hrsh7th_cmp-nvim-lsp": "plugin:hrsh7th_cmp-nvim-lsp",
-        "plugin:hrsh7th_cmp-nvim-lsp-signature-help": "plugin:hrsh7th_cmp-nvim-lsp-signature-help",
-        "plugin:hrsh7th_cmp-path": "plugin:hrsh7th_cmp-path",
-        "plugin:hrsh7th_cmp-vsnip": "plugin:hrsh7th_cmp-vsnip",
-        "plugin:hrsh7th_nvim-cmp": "plugin:hrsh7th_nvim-cmp",
-        "plugin:hrsh7th_vim-vsnip": "plugin:hrsh7th_vim-vsnip",
-        "plugin:j-hui_fidget.nvim": "plugin:j-hui_fidget.nvim",
-        "plugin:jamessan_vim-gnupg": "plugin:jamessan_vim-gnupg",
-        "plugin:jose-elias-alvarez_null-ls.nvim": "plugin:jose-elias-alvarez_null-ls.nvim",
-        "plugin:kosayoda_nvim-lightbulb": "plugin:kosayoda_nvim-lightbulb",
-        "plugin:kyazdani42_nvim-tree.lua": "plugin:kyazdani42_nvim-tree.lua",
-        "plugin:kyazdani42_nvim-web-devicons": "plugin:kyazdani42_nvim-web-devicons",
-        "plugin:leafOfTree_vim-vue-plugin": "plugin:leafOfTree_vim-vue-plugin",
-        "plugin:lewis6991_gitsigns.nvim": "plugin:lewis6991_gitsigns.nvim",
-        "plugin:luukvbaal_stabilize.nvim": "plugin:luukvbaal_stabilize.nvim",
-        "plugin:mcchrish_zenbones.nvim": "plugin:mcchrish_zenbones.nvim",
-        "plugin:mfussenegger_nvim-dap": "plugin:mfussenegger_nvim-dap",
-        "plugin:mfussenegger_nvim-jdtls": "plugin:mfussenegger_nvim-jdtls",
-        "plugin:neovim_nvim-lspconfig": "plugin:neovim_nvim-lspconfig",
-        "plugin:norcalli_nvim-colorizer.lua": "plugin:norcalli_nvim-colorizer.lua",
-        "plugin:nvim-lua_plenary.nvim": "plugin:nvim-lua_plenary.nvim",
-        "plugin:nvim-lua_popup.nvim": "plugin:nvim-lua_popup.nvim",
-        "plugin:nvim-lualine_lualine.nvim": "plugin:nvim-lualine_lualine.nvim",
-        "plugin:nvim-telescope_telescope-dap.nvim": "plugin:nvim-telescope_telescope-dap.nvim",
-        "plugin:nvim-telescope_telescope.nvim": "plugin:nvim-telescope_telescope.nvim",
-        "plugin:nvim-treesitter_nvim-treesitter-textobjects": "plugin:nvim-treesitter_nvim-treesitter-textobjects",
-        "plugin:p00f_nvim-ts-rainbow": "plugin:p00f_nvim-ts-rainbow",
-        "plugin:rafamadriz_friendly-snippets": "plugin:rafamadriz_friendly-snippets",
-        "plugin:ray-x_lsp_signature.nvim": "plugin:ray-x_lsp_signature.nvim",
-        "plugin:rcarriga_nvim-dap-ui": "plugin:rcarriga_nvim-dap-ui",
-        "plugin:rktjmp_lush.nvim": "plugin:rktjmp_lush.nvim",
-        "plugin:sbdchd_neoformat": "plugin:sbdchd_neoformat",
-        "plugin:simrat39_symbols-outline.nvim": "plugin:simrat39_symbols-outline.nvim",
-        "plugin:sindrets_diffview.nvim": "plugin:sindrets_diffview.nvim",
-        "plugin:stevearc_dressing.nvim": "plugin:stevearc_dressing.nvim",
-        "plugin:theHamsta_nvim-dap-virtual-text": "plugin:theHamsta_nvim-dap-virtual-text",
-        "plugin:tpope_vim-commentary": "plugin:tpope_vim-commentary",
-        "plugin:tpope_vim-fugitive": "plugin:tpope_vim-fugitive",
-        "plugin:tpope_vim-repeat": "plugin:tpope_vim-repeat",
-        "plugin:tpope_vim-sleuth": "plugin:tpope_vim-sleuth",
-        "plugin:tpope_vim-speeddating": "plugin:tpope_vim-speeddating",
-        "plugin:tpope_vim-surround": "plugin:tpope_vim-surround",
-        "plugin:tyru_open-browser.vim": "plugin:tyru_open-browser.vim",
-        "plugin:weilbith_nvim-code-action-menu": "plugin:weilbith_nvim-code-action-menu",
-        "plugin:windwp_nvim-autopairs": "plugin:windwp_nvim-autopairs",
-        "plugin:windwp_nvim-ts-autotag": "plugin:windwp_nvim-ts-autotag"
+        "plugin_JoosepAlviste_nvim-ts-context-commentstring": "plugin_JoosepAlviste_nvim-ts-context-commentstring",
+        "plugin_Mofiqul_adwaita.nvim": "plugin_Mofiqul_adwaita.nvim",
+        "plugin_NTBBloodbath_rest.nvim": "plugin_NTBBloodbath_rest.nvim",
+        "plugin_Pocco81_auto-save.nvim": "plugin_Pocco81_auto-save.nvim",
+        "plugin_SmiteshP_nvim-gps": "plugin_SmiteshP_nvim-gps",
+        "plugin_airblade_vim-rooter": "plugin_airblade_vim-rooter",
+        "plugin_akinsho_toggleterm.nvim": "plugin_akinsho_toggleterm.nvim",
+        "plugin_bfredl_nvim-luadev": "plugin_bfredl_nvim-luadev",
+        "plugin_bkad_CamelCaseMotion": "plugin_bkad_CamelCaseMotion",
+        "plugin_famiu_bufdelete.nvim": "plugin_famiu_bufdelete.nvim",
+        "plugin_folke_which-key.nvim": "plugin_folke_which-key.nvim",
+        "plugin_folke_zen-mode.nvim": "plugin_folke_zen-mode.nvim",
+        "plugin_glepnir_dashboard-nvim": "plugin_glepnir_dashboard-nvim",
+        "plugin_hrsh7th_cmp-buffer": "plugin_hrsh7th_cmp-buffer",
+        "plugin_hrsh7th_cmp-cmdline": "plugin_hrsh7th_cmp-cmdline",
+        "plugin_hrsh7th_cmp-nvim-lsp": "plugin_hrsh7th_cmp-nvim-lsp",
+        "plugin_hrsh7th_cmp-nvim-lsp-signature-help": "plugin_hrsh7th_cmp-nvim-lsp-signature-help",
+        "plugin_hrsh7th_cmp-path": "plugin_hrsh7th_cmp-path",
+        "plugin_hrsh7th_cmp-vsnip": "plugin_hrsh7th_cmp-vsnip",
+        "plugin_hrsh7th_nvim-cmp": "plugin_hrsh7th_nvim-cmp",
+        "plugin_hrsh7th_vim-vsnip": "plugin_hrsh7th_vim-vsnip",
+        "plugin_j-hui_fidget.nvim": "plugin_j-hui_fidget.nvim",
+        "plugin_jamessan_vim-gnupg": "plugin_jamessan_vim-gnupg",
+        "plugin_jose-elias-alvarez_null-ls.nvim": "plugin_jose-elias-alvarez_null-ls.nvim",
+        "plugin_kosayoda_nvim-lightbulb": "plugin_kosayoda_nvim-lightbulb",
+        "plugin_kyazdani42_nvim-tree.lua": "plugin_kyazdani42_nvim-tree.lua",
+        "plugin_kyazdani42_nvim-web-devicons": "plugin_kyazdani42_nvim-web-devicons",
+        "plugin_leafOfTree_vim-vue-plugin": "plugin_leafOfTree_vim-vue-plugin",
+        "plugin_lewis6991_gitsigns.nvim": "plugin_lewis6991_gitsigns.nvim",
+        "plugin_luukvbaal_stabilize.nvim": "plugin_luukvbaal_stabilize.nvim",
+        "plugin_mcchrish_zenbones.nvim": "plugin_mcchrish_zenbones.nvim",
+        "plugin_mfussenegger_nvim-dap": "plugin_mfussenegger_nvim-dap",
+        "plugin_mfussenegger_nvim-jdtls": "plugin_mfussenegger_nvim-jdtls",
+        "plugin_neovim_nvim-lspconfig": "plugin_neovim_nvim-lspconfig",
+        "plugin_norcalli_nvim-colorizer.lua": "plugin_norcalli_nvim-colorizer.lua",
+        "plugin_nvim-lua_plenary.nvim": "plugin_nvim-lua_plenary.nvim",
+        "plugin_nvim-lua_popup.nvim": "plugin_nvim-lua_popup.nvim",
+        "plugin_nvim-lualine_lualine.nvim": "plugin_nvim-lualine_lualine.nvim",
+        "plugin_nvim-telescope_telescope-dap.nvim": "plugin_nvim-telescope_telescope-dap.nvim",
+        "plugin_nvim-telescope_telescope.nvim": "plugin_nvim-telescope_telescope.nvim",
+        "plugin_nvim-treesitter_nvim-treesitter-textobjects": "plugin_nvim-treesitter_nvim-treesitter-textobjects",
+        "plugin_p00f_nvim-ts-rainbow": "plugin_p00f_nvim-ts-rainbow",
+        "plugin_rafamadriz_friendly-snippets": "plugin_rafamadriz_friendly-snippets",
+        "plugin_ray-x_lsp_signature.nvim": "plugin_ray-x_lsp_signature.nvim",
+        "plugin_rcarriga_nvim-dap-ui": "plugin_rcarriga_nvim-dap-ui",
+        "plugin_rktjmp_lush.nvim": "plugin_rktjmp_lush.nvim",
+        "plugin_sbdchd_neoformat": "plugin_sbdchd_neoformat",
+        "plugin_simrat39_symbols-outline.nvim": "plugin_simrat39_symbols-outline.nvim",
+        "plugin_sindrets_diffview.nvim": "plugin_sindrets_diffview.nvim",
+        "plugin_stevearc_dressing.nvim": "plugin_stevearc_dressing.nvim",
+        "plugin_theHamsta_nvim-dap-virtual-text": "plugin_theHamsta_nvim-dap-virtual-text",
+        "plugin_tpope_vim-commentary": "plugin_tpope_vim-commentary",
+        "plugin_tpope_vim-fugitive": "plugin_tpope_vim-fugitive",
+        "plugin_tpope_vim-repeat": "plugin_tpope_vim-repeat",
+        "plugin_tpope_vim-sleuth": "plugin_tpope_vim-sleuth",
+        "plugin_tpope_vim-speeddating": "plugin_tpope_vim-speeddating",
+        "plugin_tpope_vim-surround": "plugin_tpope_vim-surround",
+        "plugin_tyru_open-browser.vim": "plugin_tyru_open-browser.vim",
+        "plugin_weilbith_nvim-code-action-menu": "plugin_weilbith_nvim-code-action-menu",
+        "plugin_windwp_nvim-autopairs": "plugin_windwp_nvim-autopairs",
+        "plugin_windwp_nvim-ts-autotag": "plugin_windwp_nvim-ts-autotag"
       }
     }
   },
