@@ -8,7 +8,7 @@ local null_ls = require('null-ls')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 local jdtls = require('jdtls')
-local jdtlsdap = require('jdtls.dap')
+-- local jdtlsdap = require('jdtls.dap')
 
 local fidget = require('fidget')
 local lightbulb = require('nvim-lightbulb')
@@ -214,20 +214,21 @@ end
 local function setup_lspconfig_servers()
   local servers = {
     'bashls',
-    -- 'clangd',
-    'cssls',
     'dockerls',
-    'graphql',
-    'html',
+    'tsserver',
     'jsonls',
-    --'pylsp',
-    --'rust_analyzer',
+    'html',
+    'cssls',
+    'tailwindcss',
+    'vuels',
+    'graphql',
     'rnix',
     'sumneko_lua',
-    'tailwindcss',
-    'tsserver',
     'vimls',
-    'vuels',
+
+    -- 'clangd',
+    --'pylsp',
+    --'rust_analyzer',
   }
 
   for _, server in pairs(servers) do
@@ -267,6 +268,12 @@ local function setup_lspconfig_servers()
 
     elseif server == 'tsserver' then
       config.cmd = {'typescript-language-server', '--stdio' }
+
+    elseif server == 'cssls' then
+      config.cmd = {'css-languageserver', '--stdio' }
+
+    elseif server == 'html' then
+      config.cmd = {'html-languageserver', '--stdio' }
 
     elseif server == 'jsonls' then
       config.cmd = {'vscode-json-languageserver', '--stdio' }
@@ -331,7 +338,7 @@ end
 local function on_attach_jdtls(client, bufnr)
   on_attach(client, bufnr)
 
-  jdtls.setup_dap()
+  -- jdtls.setup_dap()
   -- jdtls.setup_dap({ hotcodereplace = 'auto' })
   -- jdtlsdap.setup_dap_main_class_configs()
   -- require"jdtls.dap".setup_dap_main_class_configs()
@@ -354,11 +361,11 @@ function M.init_java_lsp()
     '-data', '/tmp/jdtls/workspaces/' .. workspace_dir,
   }
 
-  config.root_dir = jdtls.setup.find_root({
-    '.git',
-    'mvnw',
-    'gradlew'
-  })
+  -- config.root_dir = jdtls.setup.find_root({
+  --   '.git',
+  --   'mvnw',
+  --   'gradlew'
+  -- })
 
   -- config.init_options = {
   --   bundles = {

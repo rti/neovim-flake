@@ -170,7 +170,8 @@
                       pkgs-unstable.tree-sitter.allGrammars)) ];
                 };
               };
-              extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_HOME ${pkgs.jdk11}";
+              /* extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_HOME ${pkgs.jdk11}"; */
+              extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies}";
             };
 
             # TODO: bubblewrap directly over here
@@ -207,9 +208,10 @@
             # Docker
             nodePackages.dockerfile-language-server-nodejs
 
-            # JavaScript / Typescript
+            # JavaScript / Typescript / JSON
             nodejs_latest
             nodePackages.typescript-language-server
+            nodePackages.vscode-json-languageserver
             nodePackages.eslint_d
 
             # HTML / CSS
@@ -218,9 +220,6 @@
 
             # Tailwind
             nodePackages."@tailwindcss/language-server"
-
-            # JSON
-            nodePackages.vscode-json-languageserver
 
             # Vue VLS Vetur
             nodePackages.vls
@@ -232,10 +231,10 @@
             rnix-lsp
 
             # Python (setup lsp in neovim)
-            python39Packages.jedi-language-server
+            /* python39Packages.jedi-language-server */
 
             # Java
-            jdk11
+            /* jdk11 */
             pkgs-unstable.jdt-language-server
 
             # Lua
