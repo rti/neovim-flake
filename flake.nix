@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    "java-debug" = { url = "github:microsoft/java-debug"; flake = false; };
+    "java-debug-bin" = { url = "github:rti/java-debug/0.40.0-bin"; flake = false; };
 
     "plugin_nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     "plugin_nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
@@ -147,22 +147,16 @@
               pluginOverlay
               (final: prev: {
                 neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim;
-                /* java-debug-repo = (final.buildMaven ./java-debug.json).repo; */
-                /* java-debug = final.stdenv.mkDerivation */
-                /*   { */
-                /*     name = "java-debug"; */
-                /*     src = inputs.java-debug; */
-                /*     buildInputs = with final; [which jdk17 maven]; */
-                /*     buildPhase = '' */
-                /*       ls -l */
-                /*       echo "Using repository ${final.java-debug-repo}" */
-                /*       mvn --offline -Dmaven.repo.local=${final.java-debug-repo} clean install */
-                /*     ''; */
-                /*     installPhase = '' */
-                /*       mkdir -p $out/lib */
-                /*       cp -rv com.microsoft.java-debug* $out/lib/ */
-                /*     ''; */
-                /*   }; */
+                java-debug = final.stdenv.mkDerivation
+                  {
+                    name = "java-debug";
+                    src = inputs.java-debug-bin;
+                    installPhase = ''
+                      mkdir -p $out/lib
+                      ls -la
+                      cp -rv ./com.microsoft.java.debug.plugin $out/lib/
+                    '';
+                  };
               })
             ];
           } // { };
@@ -192,10 +186,7 @@
                     ];
                 };
               };
-              /* extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_HOME ${pkgs.jdk11}"; */
-              /* extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_DEBUG_JAR '${pkgs.java-debug}/lib/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.40.0.jar'"; */
-              extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_DEBUG_JAR '/home/rti/tmp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.40.0.jar'"
-              ;
+              extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_DEBUG_JAR '${pkgs.java-debug}/lib/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.40.0.jar'";
             };
 
           in

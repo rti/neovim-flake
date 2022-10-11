@@ -30,6 +30,23 @@
         "type": "github"
       }
     },
+    "java-debug-bin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665512021,
+        "narHash": "sha256-YyPJ89CgTCNvUESLYj8Y/jwCui2huOwW6vVUCV/qWiM=",
+        "owner": "rti",
+        "repo": "java-debug",
+        "rev": "da09391fcf745936270fb20ee13c5ab9055ceac1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rti",
+        "ref": "0.40.0-bin",
+        "repo": "java-debug",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -1063,6 +1080,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "java-debug-bin": "java-debug-bin",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
