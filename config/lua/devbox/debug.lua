@@ -14,11 +14,11 @@ function M.setup()
   --   args = {os.getenv('HOME') .. '/vscode-node-debug2/out/src/nodeDebug.js'},
   -- }
 
-  dap.adapters.firefox = {
-    type = 'executable',
-    command = 'node',
-    args = {os.getenv('HOME') .. '/.local/lib/vscode-firefox-debug/dist/adapter.bundle.js'},
-  }
+  -- dap.adapters.firefox = {
+  --   type = 'executable',
+  --   command = 'node',
+  --   args = {os.getenv('HOME') .. '/.local/lib/vscode-firefox-debug/dist/adapter.bundle.js'},
+  -- }
 
   dap.configurations.java = {
     {
@@ -30,45 +30,45 @@ function M.setup()
     },
   }
 
-  dap.configurations.typescript = {
-    -- {
-    --   name = 'Launch node',
-    --   type = 'node2',
-    --   request = 'launch',
-    --   program = '${file}',
-    --   cwd = vim.fn.getcwd(),
-    --   sourceMaps = true,
-    --   protocol = 'inspector',
-    --   console = 'integratedTerminal',
-    -- },
-    -- {
-    --   -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    --   name = 'Attach to node',
-    --   type = 'node2',
-    --   request = 'attach',
-    --   processId = require'dap.utils'.pick_process,
-    -- },
-    {
-      name = 'Launch firefox',
-      type = 'firefox',
-      request = 'launch',
-      reAttach = false, -- caused hangs
-      url = 'http://localhost:8081/',
-      webRoot= "/home/devbox/workspace",
-      firefoxExecutable = '/usr/bin/firefox',
-    },
-    -- {
-    --   name= "Attach to firefox",
-    --   type= "firefox",
-    --   request= "attach",
-    --   url= "http://localhost:8081/",
-    --   webRoot= "/home/devbox/workspace",
-    --   firefoxExecutable = '/usr/bin/firefox'
-    -- },
-  }
+  -- dap.configurations.typescript = {
+  --   -- {
+  --   --   name = 'Launch node',
+  --   --   type = 'node2',
+  --   --   request = 'launch',
+  --   --   program = '${file}',
+  --   --   cwd = vim.fn.getcwd(),
+  --   --   sourceMaps = true,
+  --   --   protocol = 'inspector',
+  --   --   console = 'integratedTerminal',
+  --   -- },
+  --   -- {
+  --   --   -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+  --   --   name = 'Attach to node',
+  --   --   type = 'node2',
+  --   --   request = 'attach',
+  --   --   processId = require'dap.utils'.pick_process,
+  --   -- },
+  --   {
+  --     name = 'Launch firefox',
+  --     type = 'firefox',
+  --     request = 'launch',
+  --     reAttach = false, -- caused hangs
+  --     url = 'http://localhost:8081/',
+  --     webRoot= "/home/devbox/workspace",
+  --     firefoxExecutable = '/usr/bin/firefox',
+  --   },
+  --   -- {
+  --   --   name= "Attach to firefox",
+  --   --   type= "firefox",
+  --   --   request= "attach",
+  --   --   url= "http://localhost:8081/",
+  --   --   webRoot= "/home/devbox/workspace",
+  --   --   firefoxExecutable = '/usr/bin/firefox'
+  --   -- },
+  -- }
 
-  dap.configurations.javascript = dap.configurations.typescript
-  dap.configurations.vue = dap.configurations.typescript
+  -- dap.configurations.javascript = dap.configurations.typescript
+  -- dap.configurations.vue = dap.configurations.typescript
 
   vim.fn.sign_define('DapBreakpoint', {text='', texthl='', linehl='', numhl=''})
   vim.fn.sign_define("DapBreakpointCondition", {text = '', texthl = "", linehl = "", numhl = "" })
@@ -76,7 +76,7 @@ function M.setup()
   vim.fn.sign_define('DapLogPoint', {text='', texthl='', linehl='', numhl=''})
   vim.fn.sign_define('DapStopped', {text='🧲', texthl='', linehl='debugPC', numhl=''})
 
-  -- jdtls.setup_dap({ hotcodereplace = 'auto' })
+  jdtls.setup_dap({ hotcodereplace = 'auto' })
 
   wk.register({
     ["<leader>d"] = { name = "+debug" },
@@ -103,49 +103,72 @@ function M.setup()
   }
 
   dapui.setup({
-    icons = { expanded = "▾", collapsed = "▸" },
-    mappings = {
-      -- Use a table to apply multiple mappings
-      expand = { "<CR>", "<2-LeftMouse>" },
-      open = "o",
-      remove = "d",
-      edit = "e",
-      repl = "r",
-    },
-    sidebar = {
-      -- You can change the order of elements in the sidebar
-      elements = {
-        -- Provide as ID strings or tables with "id" and "size" keys
-        {
-          id = "scopes",
-          size = 0.5, -- Can be float or integer > 1
+    layouts = {
+      {
+        elements = {
+          'scopes',
+          'breakpoints',
+          'stacks',
+          'watches',
         },
-        { id = "stacks", size = 0.3 },
-        { id = "breakpoints", size = 0.1 },
-        { id = "watches", size = 0.1 },
-        -- { id = "scopes", size = 0.25 },
-        -- { id = "breakpoints", size = 0.25 },
-        -- { id = "stacks", size = 0.25 },
-        -- { id = "watches", size = 00.25 },
+        size = 40,
+        position = 'left',
       },
-      size = 60,
-      position = "left", -- Can be "left", "right", "top", "bottom"
-    },
-    tray = {
-      elements = { "repl" },
-      size = 5,
-      position = "bottom", -- Can be "left", "right", "top", "bottom"
-    },
-    floating = {
-      max_height = nil, -- These can be integers or a float between 0 and 1.
-      max_width = nil, -- Floats will be treated as percentage of your screen.
-      border = "single", -- Border style. Can be "single", "double" or "rounded"
-      mappings = {
-        close = { "q", "<Esc>" },
+      {
+        elements = {
+          'repl',
+          'console',
+        },
+        size = 10,
+        position = 'bottom',
       },
     },
-    windows = { indent = 1 },
   })
+
+  -- dapui.setup({
+  --   icons = { expanded = "▾", collapsed = "▸" },
+  --   mappings = {
+  --     -- Use a table to apply multiple mappings
+  --     expand = { "<CR>", "<2-LeftMouse>" },
+  --     open = "o",
+  --     remove = "d",
+  --     edit = "e",
+  --     repl = "r",
+  --   },
+  --   sidebar = {
+  --     -- You can change the order of elements in the sidebar
+  --     elements = {
+  --       -- Provide as ID strings or tables with "id" and "size" keys
+  --       {
+  --         id = "scopes",
+  --         size = 0.5, -- Can be float or integer > 1
+  --       },
+  --       { id = "stacks", size = 0.3 },
+  --       { id = "breakpoints", size = 0.1 },
+  --       { id = "watches", size = 0.1 },
+  --       -- { id = "scopes", size = 0.25 },
+  --       -- { id = "breakpoints", size = 0.25 },
+  --       -- { id = "stacks", size = 0.25 },
+  --       -- { id = "watches", size = 00.25 },
+  --     },
+  --     size = 60,
+  --     position = "left", -- Can be "left", "right", "top", "bottom"
+  --   },
+  --   tray = {
+  --     elements = { "repl" },
+  --     size = 5,
+  --     position = "bottom", -- Can be "left", "right", "top", "bottom"
+  --   },
+  --   floating = {
+  --     max_height = nil, -- These can be integers or a float between 0 and 1.
+  --     max_width = nil, -- Floats will be treated as percentage of your screen.
+  --     border = "single", -- Border style. Can be "single", "double" or "rounded"
+  --     mappings = {
+  --       close = { "q", "<Esc>" },
+  --     },
+  --   },
+  --   windows = { indent = 1 },
+  -- })
 
   wk.register({
     ["<leader>du"] = { "<cmd>lua require'dapui'.toggle()<cr>", "Debugger toggle UI" },

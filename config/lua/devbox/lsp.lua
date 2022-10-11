@@ -367,11 +367,12 @@ function M.init_java_lsp()
   --   'gradlew'
   -- })
 
-  -- config.init_options = {
-  --   bundles = {
-  --     vim.fn.glob("/home/devbox/.local/lib/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
-  --   }
-  -- }
+  config.init_options = {
+    bundles = {
+      os.getenv('JAVA_DEBUG_JAR'),
+      -- vim.fn.glob("/home/rti/tmp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+    }
+  }
 
   jdtls.start_or_attach(config)
 
