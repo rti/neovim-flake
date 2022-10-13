@@ -12,7 +12,7 @@
     };
 
     neovim-flake = {
-      url = "github:neovim/neovim/release-0.7?dir=contrib";
+      url = "github:rti/neovim/backport-20410-to-release-0.8?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -168,7 +168,7 @@
         neovimBuilder = { customRC, dependencies }:
           let
             neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
-              patches = (oldAttrs.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
+              /* patches = (oldAttrs.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ]; */
             });
 
             neovim-wrapped = pkgs.wrapNeovim neovimUnwrapped {
@@ -283,7 +283,6 @@
             /* python39Packages.jedi-language-server */
 
             # Java
-            /* jdk11 */
             pkgs-unstable.jdt-language-server
 
             # Lua
