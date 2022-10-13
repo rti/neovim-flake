@@ -191,12 +191,8 @@
             neovim-jailed = pkgs.symlinkJoin {
               name = "neovim";
               paths = [ neovim-wrapped ];
-              postBuild = ''
-                mv $out/bin/nvim $out/bin/nvim-unjailed
-
-                cat << _EOF > $out/bin/nvim
-                #! ${pkgs.runtimeShell} -e
-                exec /run/wrappers/bin/firejail \
+              postBuild =
+                let firejail-args = ''
                   --quiet \
                   --tracelog \
                   --noblacklist=\$HOME/.gitconfig \
@@ -205,28 +201,28 @@
                   --whitelist=/run/user/$(id -u)/wayland-1 \
                   --deterministic-exit-code \
                   --deterministic-shutdown \
-                  -- \
-                  ${neovim-wrapped}/bin/nvim "\$@"
-                _EOF
+                '';
+                in
+                ''
+                  mv $out/bin/nvim $out/bin/nvim-unjailed
 
-                cat << _EOF > $out/bin/nvim-net
-                #! ${pkgs.runtimeShell} -e
-                exec /run/wrappers/bin/firejail \
-                  --quiet \
-                  --tracelog \
-                  --ignore=net \
-                  --noblacklist=\$HOME/.gitconfig \
-                  --noblacklist=\$HOME/.config/git \
-                  --noblacklist=/run/user/$(id -u) \
-                  --whitelist=/run/user/$(id -u)/wayland-1 \
-                  --deterministic-exit-code \
-                  --deterministic-shutdown \
-                  -- \
-                  ${neovim-wrapped}/bin/nvim "\$@"
-                _EOF
-                chmod 0755 $out/bin/nvim
-                chmod 0755 $out/bin/nvim-net
-              '';
+                  cat << _EOF > $out/bin/nvim
+                  #! ${pkgs.runtimeShell} -e
+                  exec /run/wrappers/bin/firejail \
+                    ${firejail-args} -- \
+                    ${neovim-wrapped}/bin/nvim "\$@"
+                  _EOF
+                  chmod 0755 $out/bin/nvim
+
+                  cat << _EOF > $out/bin/nvim-net
+                  #! ${pkgs.runtimeShell} -e
+                  exec /run/wrappers/bin/firejail \
+                    --ignore=net \
+                    ${firejail-args} -- \
+                    ${neovim-wrapped}/bin/nvim "\$@"
+                  _EOF
+                  chmod 0755 $out/bin/nvim-net
+                '';
             };
 
           in
