@@ -199,8 +199,8 @@
                 exec /run/wrappers/bin/firejail \
                   --quiet \
                   --tracelog \
-                  --noblacklist=$HOME/.gitconfig \
-                  --noblacklist=$HOME/.config/git \
+                  --noblacklist=\$HOME/.gitconfig \
+                  --noblacklist=\$HOME/.config/git \
                   --noblacklist=/run/user/$(id -u) \
                   --whitelist=/run/user/$(id -u)/wayland-1 \
                   --deterministic-exit-code \
@@ -215,8 +215,8 @@
                   --quiet \
                   --tracelog \
                   --ignore=net \
-                  --noblacklist=$HOME/.gitconfig \
-                  --noblacklist=$HOME/.config/git \
+                  --noblacklist=\$HOME/.gitconfig \
+                  --noblacklist=\$HOME/.config/git \
                   --noblacklist=/run/user/$(id -u) \
                   --whitelist=/run/user/$(id -u)/wayland-1 \
                   --deterministic-exit-code \
