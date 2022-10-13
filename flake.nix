@@ -225,6 +225,7 @@
                   ${neovim-wrapped}/bin/nvim "\$@"
                 _EOF
                 chmod 0755 $out/bin/nvim
+                chmod 0755 $out/bin/nvim-net
               '';
             };
 
