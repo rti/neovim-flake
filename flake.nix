@@ -159,7 +159,7 @@
                   };
               })
             ];
-          } // { };
+          };
 
         pkgs-unstable = import nixpkgs-unstable {
           inherit system;
@@ -167,10 +167,9 @@
 
         neovimBuilder = { customRC, dependencies }:
           let
-            neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
-              patches = (prev.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
+            neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
+              patches = (oldAttrs.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ];
             });
-
 
             neovim-wrapped = pkgs.wrapNeovim neovimUnwrapped {
               viAlias = true;
@@ -189,8 +188,48 @@
               extraMakeWrapperArgs = "--prefix PATH : ${pkgs.lib.makeBinPath dependencies} --set JAVA_DEBUG_JAR '${pkgs.java-debug}/lib/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.40.0.jar'";
             };
 
+            neovim-jailed = pkgs.symlinkJoin {
+              name = "neovim";
+              paths = [ neovim-wrapped ];
+              postBuild = ''
+                mv $out/bin/nvim $out/bin/nvim-unjailed
+
+                cat << _EOF > $out/bin/nvim
+                #! ${pkgs.runtimeShell} -e
+                exec /run/wrappers/bin/firejail \
+                  --quiet \
+                  --tracelog \
+                  --noblacklist=$HOME/.gitconfig \
+                  --noblacklist=$HOME/.config/git \
+                  --noblacklist=/run/user/$(id -u) \
+                  --whitelist=/run/user/$(id -u)/wayland-1 \
+                  --deterministic-exit-code \
+                  --deterministic-shutdown \
+                  -- \
+                  ${neovim-wrapped}/bin/nvim "\$@"
+                _EOF
+
+                cat << _EOF > $out/bin/nvim-net
+                #! ${pkgs.runtimeShell} -e
+                exec /run/wrappers/bin/firejail \
+                  --quiet \
+                  --tracelog \
+                  --ignore=net \
+                  --noblacklist=$HOME/.gitconfig \
+                  --noblacklist=$HOME/.config/git \
+                  --noblacklist=/run/user/$(id -u) \
+                  --whitelist=/run/user/$(id -u)/wayland-1 \
+                  --deterministic-exit-code \
+                  --deterministic-shutdown \
+                  -- \
+                  ${neovim-wrapped}/bin/nvim "\$@"
+                _EOF
+                chmod 0755 $out/bin/nvim
+              '';
+            };
+
           in
-          neovim-wrapped;
+          neovim-jailed;
 
       in
       rec {
