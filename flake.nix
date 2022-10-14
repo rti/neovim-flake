@@ -12,7 +12,7 @@
     };
 
     neovim-flake = {
-      url = "github:rti/neovim/backport-20410-to-release-0.8?dir=contrib";
+      url = "github:neovim/neovim/release-0.8?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
