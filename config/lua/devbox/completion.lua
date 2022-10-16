@@ -28,9 +28,7 @@ local tabforward = function(fallback)
 end
 
 local tabbackwards = function(fallback)
-  if cmp.visible() then
-    -- cmp.select_prev_item()
-  elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+  if not cmp.visible() and vim.fn["vsnip#jumpable"](-1) == 1 then
     feedkey("<Plug>(vsnip-jump-prev)", "")
   end
 end
@@ -79,10 +77,8 @@ function M.setup()
       ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
       ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 
-      -- ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<C-Space>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default mapping.
-
-      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default mapping.
+      ['<C-Space>'] = cmp.config.disable,
+      ['<C-y>'] = cmp.config.disable,
 
       ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
@@ -90,8 +86,8 @@ function M.setup()
       }),
 
       ['<ESC>'] = cmp.mapping({
-        -- i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
+        -- i = cmp.mapping.abort(), -- no extra handling, just leave insert mode
+        -- c = cmp.mapping.close(), -- no extra handling, just leave command line mode
       }),
 
       ['<CR>'] = cmp.mapping({
@@ -109,9 +105,7 @@ function M.setup()
         i = tabforward,
         s = tabforward,
         c = function(fallback)
-          if cmp.visible() then
-            -- cmp.select_next_item()
-          else
+          if not cmp.visible() then
             cmp.complete()
           end
         end
@@ -121,14 +115,12 @@ function M.setup()
         i = tabbackwards,
         s = tabbackwards,
         c = function(fallback)
-          if cmp.visible() then
-            -- cmp.select_prev_item()
-          end
+          -- nop
         end
       }),
     },
 
-    sources = {
+    sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = "nvim_lsp_signature_help" },
       { name = 'vsnip' },
@@ -140,18 +132,29 @@ function M.setup()
         },
       },
       { name = 'path' },
+    }, {name="buffer"}),
+
+    sorting = {
+      comparators = {
+        function(...) return cmp_buffer:compare_locality(...) end,
+        -- The rest of your comparators...
+      }
     },
 
-    -- sorting = {
-    --   comparators = {
-    --     function(...) return cmp_buffer:compare_locality(...) end,
-    --     -- The rest of your comparators...
-    --   }
-    -- },
-
     window = {
+      completion = {
+        border = {
+          {"🭽", "FloatBorder"},
+          {"▔", "FloatBorder"},
+          {"🭾", "FloatBorder"},
+          {"▕", "FloatBorder"},
+          {"🭿", "FloatBorder"},
+          {"▁", "FloatBorder"},
+          {"🭼", "FloatBorder"},
+          {"▏", "FloatBorder"},
+        },
+      },
       documentation = {
-        -- border = { '', '', '', ' ', '', '', '', ' ' },
         border = {
           {"🭽", "FloatBorder"},
           {"▔", "FloatBorder"},
@@ -167,10 +170,7 @@ function M.setup()
 
     formatting = {
       format = function(entry, vim_item)
-        -- Kind icons
-        -- This concatonates the icons with the name of the item kind
         vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-        -- Source
         vim_item.menu = ({
           nvim_lsp = "[lsp]",
           nvim_lsp_signature_help = "[lspsig]",
@@ -188,12 +188,13 @@ function M.setup()
   })
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
+  cmp.setup.cmdline({'/', '?'}, {
     sources = {
       { name = 'buffer' }
     },
     view = {
-      entries = { name = 'wildmenu', separator = '|' }
+      -- entries = { name = 'wildmenu', separator = '|' }
+      entries = "custom" -- can be "custom", "wildmenu" or "native"
     },
   })
 
@@ -203,7 +204,11 @@ function M.setup()
       { name = 'path' }
     }, {
       { name = 'cmdline' }
-    })
+    }),
+
+    view = {
+      entries = "custom" -- can be "custom", "wildmenu" or "native"
+    },
   })
 
   -- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
@@ -218,10 +223,24 @@ function M.setup()
   vim.cmd[[imap <expr> <C-p> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-p>']]
   vim.cmd[[smap <expr> <C-p> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-p>']]
 
-
-  -- opt('o', 'wildchar', '<C-e>')                         -- Wildmenu completion vi default to not conflict with nvim-cmp
-  -- cmd[[set wildchar=<C-e>]]
-  -- opt('o', 'wildmode', 'longest:full,full')             -- Command-line completion mode
+  vim.cmd[[
+    " gray
+    highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#4F5E68
+    " blue
+    highlight! CmpItemAbbrMatch guibg=NONE guifg=#1D5573
+    highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
+    " light blue
+    highlight! CmpItemKindVariable guibg=NONE guifg=#3F5A22
+    highlight! link CmpItemKindInterface CmpItemKindVariable
+    highlight! link CmpItemKindText CmpItemKindVariable
+    " pink
+    highlight! CmpItemKindFunction guibg=NONE guifg=#7B3B70
+    highlight! link CmpItemKindMethod CmpItemKindFunction
+    " front
+    highlight! CmpItemKindKeyword guibg=NONE guifg=#803D1C
+    highlight! link CmpItemKindProperty CmpItemKindKeyword
+    highlight! link CmpItemKindUnit CmpItemKindKeyword
+  ]]
 end
 
 return M
