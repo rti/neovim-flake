@@ -1,6 +1,7 @@
 local M = {}
 
 local stabilize = require('stabilize')
+local notify = require('notify')
 local noice = require('noice')
 
 function M.setup_autohide_cursorline()
@@ -31,6 +32,25 @@ function M.setup()
   })
 
   M.setup_autohide_cursorline()
+
+  notify.setup(
+  {
+    background_colour = "Normal",
+    fps = 30,
+    icons = {
+      DEBUG = "",
+      ERROR = "",
+      INFO = "",
+      TRACE = "✎",
+      WARN = ""
+    },
+    level = 2,
+    minimum_width = 50,
+    render = "minimal",
+    stages = "static",
+    timeout = 5000,
+    top_down = true
+  })
 
   noice.setup({
     cmdline = {
