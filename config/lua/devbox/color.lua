@@ -9,7 +9,8 @@ function M.setup()
   vim.cmd('colorscheme zenbones')
 
   -- dim inactive
-  vim.cmd[[hi! link NormalNC CursorLine]]
+  -- vim.cmd[[hi! link NormalNC CursorLine]]
+  vim.cmd[[hi! NormalNC guibg=#e9e4e2]]
 
   vim.cmd[[hi! link NormalFloat Normal]]
   vim.cmd[[hi! link FloatBorder NormalFloat]]
