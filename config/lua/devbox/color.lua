@@ -1,6 +1,7 @@
 local M = {}
 
 local wk = require("which-key")
+local colorizer = require("colorizer")
 
 function M.setup()
   -- set to light to prevent flicker on light terminals
@@ -63,7 +64,7 @@ function M.setup()
   })
 
   -- colorizer color code strings e.g. #ab2edd
-  require'colorizer'.setup()
+  colorizer.setup()
 end
 
 return M
