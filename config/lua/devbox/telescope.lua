@@ -40,14 +40,14 @@ local defaults = {
     preview_cutoff = 120,
   },
   file_sorter = telescope_sorters.get_fuzzy_file,
-  file_ignore_patterns = {'%.d','%.lst','%.map','%.o','^node_modules$', '^dist$', '^\\.git$', '%.min.js' },
+  file_ignore_patterns = { '%.d', '%.lst', '%.map', '%.o', '^node_modules$', '^dist$', '^\\.git$', '%.min.js' },
   generic_sorter = telescope_sorters.get_generic_fuzzy_sorter,
   path_display = { "truncate" },
   winblend = 0,
   border = {},
   -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
   -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-  borderchars = { '▔', '▕', '▁', '▏', '🭽', '🭾', '🭿', '🭼'},
+  borderchars = { '▔', '▕', '▁', '▏', '🭽', '🭾', '🭿', '🭼' },
   color_devicons = true,
   use_less = true,
   set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
@@ -90,7 +90,7 @@ end
 function M.setup()
   telescope.setup({
     defaults = defaults,
-    extensions = { }
+    extensions = {}
   })
 
   wk.register({
