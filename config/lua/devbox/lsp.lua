@@ -8,7 +8,6 @@ local null_ls = require('null-ls')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 local jdtls = require('jdtls')
--- local jdtlsdap = require('jdtls.dap')
 
 local fidget = require('fidget')
 local lightbulb = require('nvim-lightbulb')
@@ -16,14 +15,14 @@ local lightbulb = require('nvim-lightbulb')
 local wk = require("which-key")
 
 local border = {
-  {"🭽", "FloatBorder"},
-  {"▔", "FloatBorder"},
-  {"🭾", "FloatBorder"},
-  {"▕", "FloatBorder"},
-  {"🭿", "FloatBorder"},
-  {"▁", "FloatBorder"},
-  {"🭼", "FloatBorder"},
-  {"▏", "FloatBorder"},
+  { "🭽", "FloatBorder" },
+  { "▔", "FloatBorder" },
+  { "🭾", "FloatBorder" },
+  { "▕", "FloatBorder" },
+  { "🭿", "FloatBorder" },
+  { "▁", "FloatBorder" },
+  { "🭼", "FloatBorder" },
+  { "▏", "FloatBorder" },
 }
 
 -- override globally
@@ -36,105 +35,54 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 
 local function on_attach(client, bufnr)
-  -- jdtls.setup_dap({ hotcodereplace = 'auto' })
-  -- jdtlsdap.setup_dap_main_class_configs()
+  -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
-  wk.register({
-    -- ["<C-]>"] = { "<cmd>LspDef<cr>", "LSP jump to definition" },
-    ["gd"] = { "<cmd>LspDef<cr>", "LSP jump to definition" },
-  }, { buffer = bufnr })
-
   vim.cmd("command! LspDecl lua vim.lsp.buf.declaration()")
-  wk.register({
-    ["gD"] = { "<cmd>LspDecl<cr>", "LSP jump to declaration" },
-  }, { buffer = bufnr })
-
   vim.cmd("command! LspImpl lua vim.lsp.buf.implementation()")
-  wk.register({
-    ["gI"] = { "<cmd>LspImpl<cr>", "LSP jump to implementation" },
-  }, { buffer = bufnr })
-
   vim.cmd("command! LspTypeDef lua vim.lsp.buf.type_definition()")
-  wk.register({
-    ["gt"] = { "<cmd>LspTypeDef<cr>", "LSP jump to type definition" },
-  }, { buffer = bufnr })
-
   vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
-  -- currently handled by telescope
-  -- mapbuf(bufnr, 'n', '<leader>lr', ':LspRefs<CR>')
-
   vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
-  wk.register({
-    ["<C-h>"] = { "<cmd>LspHover<cr>", "LSP hover information" },
-  }, { buffer = bufnr })
-
   vim.cmd("command! LspSig lua vim.lsp.buf.signature_help()")
-  wk.register({
-    ["<C-s>"] = { "<cmd>LspSig<cr>", "LSP signature information" },
-  }, { buffer = bufnr, mode = "n"})
-  wk.register({
-    ["<C-s>"] = { "<cmd>LspSig<cr>", "LSP signature information" },
-  }, { buffer = bufnr, mode = "i"})
-
   vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
-  wk.register({
-    ["<leader>rn"] = { "<cmd>LspRename<cr>", "LSP rename" },
-  }, { buffer = bufnr })
-
   vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
-  -- mapbuf(bufnr, 'n', '<leader>ca', ':LspCodeAction<CR>')
-  -- mapbuf(bufnr, 'n', '<leader>ca', ':CodeActionMenu<CR>') -- weilbith/nvim-code-action-menu
-  wk.register({
-    ["<leader>ca"] = { "<cmd>CodeActionMenu<cr>", "LSP code action menu" },
-  }, { buffer = bufnr })
-
-
   vim.cmd("command! LspDiagPrev lua vim.diagnostic.goto_prev({float=nil})")
   vim.cmd("command! LspDiagNext lua vim.diagnostic.goto_next({float=nil})")
+  vim.cmd("command! LspFormat lua vim.lsp.buf.formatting()")
+  vim.cmd("command! LspFormatRange lua vim.lsp.buf.range_formatting()")
+
   wk.register({
-    ["]d"] = { "<cmd>LspDiagNext<cr>", "Next diagnostics message" },
+    ["gd"] = { "<cmd>LspDef<cr>", "LSP jump to definition" },
+    ["gD"] = { "<cmd>LspDecl<cr>", "LSP jump to declaration" },
+    ["gI"] = { "<cmd>LspImpl<cr>", "LSP jump to implementation" },
+    ["gt"] = { "<cmd>LspTypeDef<cr>", "LSP jump to type definition" },
+    ["<C-h>"] = { "<cmd>LspHover<cr>", "LSP hover information" },
+    ["gr"] = { "<cmd>LspRefs<cr>", "LSP jump to references" },
+    ["<C-s>"] = { "<cmd>LspSig<cr>", "LSP signature information" },
+    ["<leader>rn"] = { "<cmd>LspRename<cr>", "LSP rename" },
+    ["<leader>ca"] = { "<cmd>CodeActionMenu<cr>", "LSP code action menu" },
+    -- ["<leader>ca"] = { "<cmd>LspCodeAction<cr>", "LSP code action menu" },
     ["[d"] = { "<cmd>LspDiagPrev<cr>", "Previous diagnostics message" },
-  }, { buffer = bufnr })
+    ["]d"] = { "<cmd>LspDiagNext<cr>", "Next diagnostics message" },
+    ["<leader>fl"] = { "<cmd>LspFormat<cr>", "LSP format buffer" },
+    ["<leader>fr"] = { "<cmd>LspFormatRange<cr>", "LSP format range" },
+  }, { noremap = true, silent = true, buffer = bufnr })
+
+  wk.register({
+    ["<C-s>"] = { "<cmd>LspSig<cr>", "LSP signature information" },
+  }, { noremap = true, silent = true, buffer = bufnr, mode = "i" })
 
   -- diagnostics list handled by telescope
   -- vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float()")
   -- vim.cmd("command! LspDiagLocList lua vim.diagnostic.setloclist()")
 
+  -- TODO: workspace folders
   -- mapbuf('n', '<leader>Wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
   -- mapbuf('n', '<leader>Wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
   -- mapbuf('n', '<leader>Wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 
-  vim.cmd("command! LspFormat lua vim.lsp.buf.formatting()")
-  vim.cmd("command! LspFormatRange lua vim.lsp.buf.range_formatting()")
-
-  -- -- this is dependent on client, not cool when set globally
-  if client.resolved_capabilities.document_formatting then
-    wk.register({
-      ["<leader>fl"] = { "<cmd>LspFormat<cr>", "LSP format buffer" },
-    }, { buffer = bufnr })
-  else
-    wk.register({
-      ["<leader>fl"] = { "<cmd>echoerr 'Error: no server supports formatting'<cr>", "LSP format buffer unavailable" },
-    }, { buffer = bufnr })
-  end
-
-  if client.resolved_capabilities.document_range_formatting then
-    wk.register({
-      ["<leader>fr"] = { "<cmd>LspFormatRange<cr>", "LSP format range" },
-    }, { buffer = bufnr, mode = "v" })
-  else
-    wk.register({
-      ["<leader>fr"] = { "<cmd>echoerr 'Error: no server supports formatting'<cr>", "LSP format range unavailable" },
-    }, { buffer = bufnr, mode = "v" })
-  end
-
-  if client.resolved_capabilities.goto_definition then
-    vim.api.nvim_buf_set_option(bufnr, 'tagfunc', "v:lua.vim.lsp.tagfunc")
-  end
-
-  vim.api.nvim_create_autocmd({"CursorHold"}, {
+  vim.api.nvim_create_autocmd({ "CursorHold" }, {
     buffer = bufnr,
     callback = function()
       local opts = {
@@ -149,25 +97,7 @@ local function on_attach(client, bufnr)
     end
   })
 
-  -- Set autocommands conditional on server_capabilities nvim < 0.7
-  -- if client.resolved_capabilities.document_highlight then
-  --   vim.api.nvim_exec([[
-  --     augroup lsp_document_highlight
-  --       autocmd! * <buffer>
-  --       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-  --       autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-  --       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-  --     augroup END
-  --   ]], false)
-  -- end
-
-  -- Set autocommands conditional on server_capabilities nvim >= 0.7
-  if client.resolved_capabilities.document_highlight then
-    -- vim.cmd [[
-    -- hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    -- hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    -- hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-    -- ]]
+  if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_augroup('lsp_document_highlight', {})
     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
       group = 'lsp_document_highlight',
@@ -180,9 +110,6 @@ local function on_attach(client, bufnr)
       callback = vim.lsp.buf.clear_references,
     })
   end
-
-  -- jdtls.setup_dap({ hotcodereplace = 'auto' })
-  -- jdtlsdap.setup_dap_main_class_configs()
 
   vim.diagnostic.config({
     virtual_text = {
@@ -200,7 +127,6 @@ local function on_attach(client, bufnr)
     severity_sort = true
   })
 end
-
 
 local function make_config()
   local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -236,7 +162,7 @@ local function setup_lspconfig_servers()
 
     -- language specific config
     if server == 'sumneko_lua' then
-      config.cmd = {'lua-language-server'}
+      config.cmd = { 'lua-language-server' }
       config.settings = {
         Lua = {
           runtime = {
@@ -247,7 +173,7 @@ local function setup_lspconfig_servers()
           },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
+            globals = { 'vim' },
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
@@ -267,21 +193,21 @@ local function setup_lspconfig_servers()
       -- config.filetypes = { "vue", "typescript", "javascript" }
 
     elseif server == 'tsserver' then
-      config.cmd = {'typescript-language-server', '--stdio' }
+      config.cmd = { 'typescript-language-server', '--stdio' }
 
     elseif server == 'cssls' then
-      config.cmd = {'css-languageserver', '--stdio' }
+      config.cmd = { 'css-languageserver', '--stdio' }
 
     elseif server == 'html' then
-      config.cmd = {'html-languageserver', '--stdio' }
+      config.cmd = { 'html-languageserver', '--stdio' }
 
     elseif server == 'jsonls' then
-      config.cmd = {'vscode-json-languageserver', '--stdio' }
+      config.cmd = { 'vscode-json-languageserver', '--stdio' }
       config.commands = {
         -- use range format for full document formating as well
         Format = {
           function()
-            vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+            vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
           end
         }
       }
@@ -382,7 +308,7 @@ function M.init_java_lsp()
 end
 
 local function setup_jdtls()
-  vim.cmd[[
+  vim.cmd [[
     augroup ft_java_jdtls_lsp
         autocmd! * <buffer>
         autocmd filetype java lua require('devbox/lsp').init_java_lsp()
@@ -456,7 +382,7 @@ local function setup_lightbulb()
   vim.cmd [[
     autocmd CursorHold,CursorHoldI * lua require('devbox/lsp').update_lightbulb()
   ]]
-  vim.fn.sign_define('LightBulbSign', { text = "", texthl = "", linehl="", numhl="" })
+  vim.fn.sign_define('LightBulbSign', { text = "", texthl = "", linehl = "", numhl = "" })
 end
 
 function M.setup()
