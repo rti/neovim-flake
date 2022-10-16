@@ -52,6 +52,33 @@ function M.setup()
     top_down = true
   })
 
+  vim.cmd[[
+  highlight NotifyERRORBorder guifg=#8A1F1F
+  highlight link NotifyERRORTitle NotifyERRORBorder
+  highlight link NotifyERRORIcon NotifyERRORBorder
+  highlight link NotifyERRORBody Normal
+
+  highlight NotifyWARNBorder guifg=#79491D
+  highlight link NotifyWARNIcon NotifyWARNBorder
+  highlight link NotifyWARNTitle NotifyWARNBorder
+  highlight link NotifyWARNBody Normal
+
+  highlight link NotifyINFOBorder Normal
+  highlight link NotifyINFOIcon Normal
+  highlight link NotifyINFOTitle Normal
+  highlight link NotifyINFOBody Normal
+
+  highlight link NotifyDEBUGBorder Normal
+  highlight link NotifyDEBUGIcon Normal
+  highlight link NotifyDEBUGTitle Normal
+  highlight link NotifyDEBUGBody Normal
+
+  highlight link NotifyTRACEIcon Normal
+  highlight link NotifyTRACEBorder Normal
+  highlight link NotifyTRACETitle Normal
+  highlight link NotifyTRACEBody Normal
+  ]]
+
   noice.setup({
     cmdline = {
       enabled = true, -- disable if you use native command line UI
