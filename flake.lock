@@ -133,6 +133,22 @@
         "type": "github"
       }
     },
+    "plugin_MunifTanjim_nui.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665830256,
+        "narHash": "sha256-cCc5ZJJl4sg+BMozS8ToFMqZ53CeaJZEq5vr4S9GFnk=",
+        "owner": "MunifTanjim",
+        "repo": "nui.nvim",
+        "rev": "c59bdcfde011b88bfb71b5c4351684cf67bf5f9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MunifTanjim",
+        "repo": "nui.nvim",
+        "type": "github"
+      }
+    },
     "plugin_NTBBloodbath_rest.nvim": {
       "flake": false,
       "locked": {
@@ -258,6 +274,22 @@
       "original": {
         "owner": "famiu",
         "repo": "bufdelete.nvim",
+        "type": "github"
+      }
+    },
+    "plugin_folke_noice.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665949785,
+        "narHash": "sha256-hwGBjcR9G2SQrznCLB3D9iUbMXm1PsRedHGbwhVT098=",
+        "owner": "folke",
+        "repo": "noice.nvim",
+        "rev": "956bc053799c06baffeb1540476a15baf324be1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "noice.nvim",
         "type": "github"
       }
     },
@@ -821,6 +853,22 @@
         "type": "github"
       }
     },
+    "plugin_rcarriga_nvim-notify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665665070,
+        "narHash": "sha256-iiCoYmN6ht9WZY0vpFdpyV8x83dXqkUfhPWmt+Y7R84=",
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "rev": "af935fd8329ba67d96afa1b2650af84251f1dc0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "type": "github"
+      }
+    },
     "plugin_rktjmp_lush.nvim": {
       "flake": false,
       "locked": {
@@ -1086,6 +1134,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plugin_JoosepAlviste_nvim-ts-context-commentstring": "plugin_JoosepAlviste_nvim-ts-context-commentstring",
         "plugin_Mofiqul_adwaita.nvim": "plugin_Mofiqul_adwaita.nvim",
+        "plugin_MunifTanjim_nui.nvim": "plugin_MunifTanjim_nui.nvim",
         "plugin_NTBBloodbath_rest.nvim": "plugin_NTBBloodbath_rest.nvim",
         "plugin_Pocco81_auto-save.nvim": "plugin_Pocco81_auto-save.nvim",
         "plugin_SmiteshP_nvim-gps": "plugin_SmiteshP_nvim-gps",
@@ -1094,6 +1143,7 @@
         "plugin_bfredl_nvim-luadev": "plugin_bfredl_nvim-luadev",
         "plugin_bkad_CamelCaseMotion": "plugin_bkad_CamelCaseMotion",
         "plugin_famiu_bufdelete.nvim": "plugin_famiu_bufdelete.nvim",
+        "plugin_folke_noice.nvim": "plugin_folke_noice.nvim",
         "plugin_folke_which-key.nvim": "plugin_folke_which-key.nvim",
         "plugin_folke_zen-mode.nvim": "plugin_folke_zen-mode.nvim",
         "plugin_glepnir_dashboard-nvim": "plugin_glepnir_dashboard-nvim",
@@ -1129,6 +1179,7 @@
         "plugin_rafamadriz_friendly-snippets": "plugin_rafamadriz_friendly-snippets",
         "plugin_ray-x_lsp_signature.nvim": "plugin_ray-x_lsp_signature.nvim",
         "plugin_rcarriga_nvim-dap-ui": "plugin_rcarriga_nvim-dap-ui",
+        "plugin_rcarriga_nvim-notify": "plugin_rcarriga_nvim-notify",
         "plugin_rktjmp_lush.nvim": "plugin_rktjmp_lush.nvim",
         "plugin_sbdchd_neoformat": "plugin_sbdchd_neoformat",
         "plugin_simrat39_symbols-outline.nvim": "plugin_simrat39_symbols-outline.nvim",

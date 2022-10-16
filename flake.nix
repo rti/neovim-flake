@@ -94,6 +94,10 @@
     "plugin_rktjmp_lush.nvim" = { url = "github:rktjmp/lush.nvim"; flake = false; };
     "plugin_mcchrish_zenbones.nvim" = { url = "github:mcchrish/zenbones.nvim"; flake = false; };
     "plugin_Mofiqul_adwaita.nvim" = { url = "github:Mofiqul/adwaita.nvim"; flake = false; };
+
+    "plugin_rcarriga_nvim-notify" = { url = "github:rcarriga/nvim-notify"; flake = false; };
+    "plugin_MunifTanjim_nui.nvim" = { url = "github:MunifTanjim/nui.nvim"; flake = false; };
+    "plugin_folke_noice.nvim" = { url = "github:folke/noice.nvim"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... } @ inputs:
