@@ -152,10 +152,6 @@ local function setup_lspconfig_servers()
     "rnix",
     "sumneko_lua",
     "vimls",
-
-    -- 'clangd',
-    --'pylsp',
-    --'rust_analyzer',
   }
 
   for _, server in pairs(servers) do
@@ -210,26 +206,6 @@ local function setup_lspconfig_servers()
 
     lspconfig[server].setup(config)
   end
-
-  -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  --   vim.lsp.diagnostic.on_publish_diagnostics, {
-  --   }
-  -- )
-  -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  --   vim.lsp.diagnostic.on_publish_diagnostics, {
-  --     -- virtual_text = false,
-  --     -- virtual_text = true,
-  --     virtual_text = {
-  --       spacing = 4,
-  --       severity = vim.diagnostic.severity.ERROR,
-  --       -- severity = "ERROR",
-  --     },
-  --     underline = true,
-  --     signs = true,
-  --     update_in_insert = true,
-  --     severity_sort = true
-  --   }
-  -- )
 end
 
 local function setup_null_ls()
@@ -240,35 +216,19 @@ local function setup_null_ls()
       null_ls.builtins.diagnostics.eslint_d,
       null_ls.builtins.formatting.eslint_d,
 
-      -- null_ls.builtins.code_actions.eslint,
-      -- null_ls.builtins.diagnostics.eslint,
-      -- null_ls.builtins.formatting.eslint,
-
       null_ls.builtins.formatting.stylua,
-
       -- null_ls.builtins.completion.spell,
     },
   })
 end
 
-local function on_attach_jdtls(client, bufnr)
-  on_attach(client, bufnr)
-
-  -- jdtls.setup_dap()
-  -- jdtls.setup_dap({ hotcodereplace = 'auto' })
-  -- jdtlsdap.setup_dap_main_class_configs()
-  -- require"jdtls.dap".setup_dap_main_class_configs()
-end
-
 function M.init_java_lsp()
-  -- https://download.eclipse.org/jdtls/milestones/1.8.0/jdt-language-server-1.8.0-202201261434.tar.gz
-
   -- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
   local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
   local config = make_config()
 
-  config.on_attach = on_attach_jdtls
+  config.on_attach = on_attach
 
   -- The command that starts the language server
   config.cmd = {
@@ -278,24 +238,11 @@ function M.init_java_lsp()
     "/tmp/jdtls/workspaces/" .. workspace_dir,
   }
 
-  -- config.root_dir = jdtls.setup.find_root({
-  --   '.git',
-  --   'mvnw',
-  --   'gradlew'
-  -- })
-
   config.init_options = {
-    bundles = {
-      os.getenv("JAVA_DEBUG_JAR"),
-      -- vim.fn.glob("/home/rti/tmp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
-    },
+    bundles = { os.getenv("JAVA_DEBUG_JAR"), },
   }
 
   jdtls.start_or_attach(config)
-
-  -- jdtls.setup_dap({ hotcodereplace = 'auto' })
-  -- jdtls.dap.setup_dap_main_class_configs()
-  -- require"jdtls.dap".setup_dap_main_class_configs()
 end
 
 local function setup_jdtls()
@@ -321,50 +268,21 @@ end
 
 function M.update_lightbulb()
   lightbulb.update_lightbulb({
-    -- LSP client names to ignore
-    -- Example: {"sumneko_lua", "null-ls"}
     ignore = {},
     sign = {
       enabled = true,
-      -- Priority of the gutter sign
       priority = 10,
     },
     float = {
       enabled = false,
-      -- Text to show in the popup float
-      -- text = "💡",
       text = "",
-      -- Available keys for window options:
-      -- - height     of floating window
-      -- - width      of floating window
-      -- - wrap_at    character to wrap at for computing height
-      -- - max_width  maximal width of floating window
-      -- - max_height maximal height of floating window
-      -- - pad_left   number of columns to pad contents at left
-      -- - pad_right  number of columns to pad contents at right
-      -- - pad_top    number of lines to pad contents at top
-      -- - pad_bottom number of lines to pad contents at bottom
-      -- - offset_x   x-axis offset of the floating window
-      -- - offset_y   y-axis offset of the floating window
-      -- - anchor     corner of float to place at the cursor (NW, NE, SW, SE)
-      -- - winblend   transparency of the window (0-100)
       win_opts = {},
     },
     virtual_text = {
       enabled = false,
-      -- Text to show at virtual text
-      -- text = "💡",
-      text = "",
-      -- highlight mode to use for virtual text (replace, combine, blend), see :help nvim_buf_set_extmark() for reference
-      hl_mode = "replace",
     },
     status_text = {
       enabled = false,
-      -- Text to provide when code actions are available
-      -- text = "💡",
-      text = "",
-      -- Text to provide when no actions are available
-      text_unavailable = "",
     },
   })
 end
