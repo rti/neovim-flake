@@ -1,16 +1,16 @@
 local M = {}
 
-local lspconfig = require('lspconfig')
-local root_pattern = require('lspconfig/util').root_pattern
+local lspconfig = require("lspconfig")
+local root_pattern = require("lspconfig/util").root_pattern
 
-local null_ls = require('null-ls')
+local null_ls = require("null-ls")
 
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-local jdtls = require('jdtls')
+local jdtls = require("jdtls")
 
-local fidget = require('fidget')
-local lightbulb = require('nvim-lightbulb')
+local fidget = require("fidget")
+local lightbulb = require("nvim-lightbulb")
 
 local wk = require("which-key")
 
@@ -36,7 +36,7 @@ end
 
 local function on_attach(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
   vim.cmd("command! LspDecl lua vim.lsp.buf.declaration()")
@@ -49,7 +49,7 @@ local function on_attach(client, bufnr)
   vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
   vim.cmd("command! LspDiagPrev lua vim.diagnostic.goto_prev({float=nil})")
   vim.cmd("command! LspDiagNext lua vim.diagnostic.goto_next({float=nil})")
-  vim.cmd("command! LspFormat lua vim.lsp.buf.formatting()")
+  vim.cmd("command! LspFormat lua vim.lsp.buf.format({async=true})")
   vim.cmd("command! LspFormatRange lua vim.lsp.buf.range_formatting()")
 
   wk.register({
@@ -89,23 +89,23 @@ local function on_attach(client, bufnr)
         focusable = false,
         close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
         border = border,
-        source = 'always',
-        prefix = ' ',
-        scope = 'cursor',
+        source = "always",
+        prefix = " ",
+        scope = "cursor",
       }
       vim.diagnostic.open_float(nil, opts)
-    end
+    end,
   })
 
   if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_create_augroup('lsp_document_highlight', {})
-    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-      group = 'lsp_document_highlight',
+    vim.api.nvim_create_augroup("lsp_document_highlight", {})
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      group = "lsp_document_highlight",
       buffer = 0,
       callback = vim.lsp.buf.document_highlight,
     })
-    vim.api.nvim_create_autocmd('CursorMoved', {
-      group = 'lsp_document_highlight',
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      group = "lsp_document_highlight",
       buffer = 0,
       callback = vim.lsp.buf.clear_references,
     })
@@ -114,7 +114,7 @@ local function on_attach(client, bufnr)
   vim.diagnostic.config({
     virtual_text = {
       -- source = "always",  -- Or "if_many"
-      prefix = '■', -- Could be '●', '▎', 'x'
+      prefix = "■", -- Could be '●', '▎', 'x'
       spacing = 4,
       severity = vim.diagnostic.severity.ERROR,
     },
@@ -124,7 +124,7 @@ local function on_attach(client, bufnr)
     underline = true,
     signs = true,
     update_in_insert = true,
-    severity_sort = true
+    severity_sort = true,
   })
 end
 
@@ -139,18 +139,18 @@ end
 
 local function setup_lspconfig_servers()
   local servers = {
-    'bashls',
-    'dockerls',
-    'tsserver',
-    'jsonls',
-    'html',
-    'cssls',
-    'tailwindcss',
-    'vuels',
-    'graphql',
-    'rnix',
-    'sumneko_lua',
-    'vimls',
+    "bashls",
+    "dockerls",
+    "tsserver",
+    "jsonls",
+    "html",
+    "cssls",
+    "tailwindcss",
+    "vuels",
+    "graphql",
+    "rnix",
+    "sumneko_lua",
+    "vimls",
 
     -- 'clangd',
     --'pylsp',
@@ -161,61 +161,50 @@ local function setup_lspconfig_servers()
     local config = make_config()
 
     -- language specific config
-    if server == 'sumneko_lua' then
-      config.cmd = { 'lua-language-server' }
+    if server == "sumneko_lua" then
+      config.cmd = { "lua-language-server" }
       config.settings = {
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
-            -- Setup your lua path
-            path = vim.split(package.path, ';'),
+            version = "LuaJIT",
           },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = { 'vim' },
+            globals = { "vim" },
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
-            library = {
-              [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-              [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-            },
+            library = vim.api.nvim_get_runtime_file("", true),
           },
           -- Do not send telemetry data containing a randomized but unique identifier
           telemetry = {
             enable = false,
           },
-        }
+        },
       }
-
-    elseif server == 'vuels' then
-      -- config.filetypes = { "vue", "typescript", "javascript" }
-
-    elseif server == 'tsserver' then
-      config.cmd = { 'typescript-language-server', '--stdio' }
-
-    elseif server == 'cssls' then
-      config.cmd = { 'css-languageserver', '--stdio' }
-
-    elseif server == 'html' then
-      config.cmd = { 'html-languageserver', '--stdio' }
-
-    elseif server == 'jsonls' then
-      config.cmd = { 'vscode-json-languageserver', '--stdio' }
+    -- elseif server == "vuels" then
+    --   config.filetypes = { "vue", "typescript", "javascript" }
+    elseif server == "tsserver" then
+      config.cmd = { "typescript-language-server", "--stdio" }
+    elseif server == "cssls" then
+      config.cmd = { "css-languageserver", "--stdio" }
+    elseif server == "html" then
+      config.cmd = { "html-languageserver", "--stdio" }
+    elseif server == "jsonls" then
+      config.cmd = { "vscode-json-languageserver", "--stdio" }
       config.commands = {
         -- use range format for full document formating as well
         Format = {
           function()
             vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-          end
-        }
+          end,
+        },
       }
-
-    elseif server == 'graphql' then
+    elseif server == "graphql" then
       config.cmd = { "graphql-lsp", "server", "-m", "stream" }
       config.filetypes = { "graphql", "typescript", "javascript" }
-      config.root_dir = root_pattern('.git', '.graphqlrc*', '.graphql.config.*')
+      config.root_dir = root_pattern(".git", ".graphqlrc*", ".graphql.config.*")
     end
 
     lspconfig[server].setup(config)
@@ -274,7 +263,7 @@ function M.init_java_lsp()
   -- https://download.eclipse.org/jdtls/milestones/1.8.0/jdt-language-server-1.8.0-202201261434.tar.gz
 
   -- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
-  local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+  local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
   local config = make_config()
 
@@ -282,9 +271,10 @@ function M.init_java_lsp()
 
   -- The command that starts the language server
   config.cmd = {
-    'jdt-language-server',
+    "jdt-language-server",
     -- TODO put this into $HOME/.cache/jdtls ?
-    '-data', '/tmp/jdtls/workspaces/' .. workspace_dir,
+    "-data",
+    "/tmp/jdtls/workspaces/" .. workspace_dir,
   }
 
   -- config.root_dir = jdtls.setup.find_root({
@@ -295,9 +285,9 @@ function M.init_java_lsp()
 
   config.init_options = {
     bundles = {
-      os.getenv('JAVA_DEBUG_JAR'),
+      os.getenv("JAVA_DEBUG_JAR"),
       -- vim.fn.glob("/home/rti/tmp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
-    }
+    },
   }
 
   jdtls.start_or_attach(config)
@@ -308,21 +298,21 @@ function M.init_java_lsp()
 end
 
 local function setup_jdtls()
-  vim.cmd [[
+  vim.cmd([[
     augroup ft_java_jdtls_lsp
         autocmd! * <buffer>
         autocmd filetype java lua require('devbox/lsp').init_java_lsp()
     augroup END
-  ]]
+  ]])
 end
 
 local function setup_lspsigns()
-  for type, icon in pairs {
-    Error = ' ', -- xf659
-    Warn = ' ', -- xf529
-    Info = ' ', -- xf7fc
-    Hint = ' ', -- xf835
-  } do
+  for type, icon in pairs({
+    Error = " ", -- xf659
+    Warn = " ", -- xf529
+    Info = " ", -- xf7fc
+    Hint = " ", -- xf835
+  }) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
@@ -373,16 +363,16 @@ function M.update_lightbulb()
       -- text = "💡",
       text = "",
       -- Text to provide when no actions are available
-      text_unavailable = ""
-    }
+      text_unavailable = "",
+    },
   })
 end
 
 local function setup_lightbulb()
-  vim.cmd [[
+  vim.cmd([[
     autocmd CursorHold,CursorHoldI * lua require('devbox/lsp').update_lightbulb()
-  ]]
-  vim.fn.sign_define('LightBulbSign', { text = "", texthl = "", linehl = "", numhl = "" })
+  ]])
+  vim.fn.sign_define("LightBulbSign", { text = "", texthl = "", linehl = "", numhl = "" })
 end
 
 function M.setup()
