@@ -116,6 +116,15 @@ function M.setup()
       -- Benefit of using Noice for this is the routing and consistent history view
       enabled = true,
     },
+    lsp_progress = {
+      enabled = true,
+      format = {
+        { "{data.progress.message} " },
+        "({data.progress.percentage}%) ",
+        { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+        { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+      },
+    },
     hacks = {
       -- due to https://github.com/neovim/neovim/issues/20416
       -- messages are resent during a redraw. Noice detects this in most cases, but
@@ -125,7 +134,7 @@ function M.setup()
       skip_duplicate_messages = false,
     },
     throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
-    ---@type table<string, NoiceViewOptions>
+    debug = false,
     views = {
       cmdline_popup = {
         border = {
@@ -146,12 +155,46 @@ function M.setup()
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
         },
       },
-    }, -- @see the section on views below
-    ---@type NoiceRouteConfig[]
-    routes = {}, -- @see the section on routes below
-    ---@type table<string, NoiceFilter>
+    },
+
+    routes = {
+
+      -- skip search virtual text
+      {
+        filter = {
+          event = "msg_show",
+          kind = "search_count",
+        },
+        opts = { skip = true },
+      },
+
+      -- as much as possible to mini view
+      {
+        view = "mini",
+        filter = {
+          any = {
+            { event = "msg_show", kind = { "", "echo" } },
+            { event = "msg_showmode", kind = { "", "echo" } },
+            { event = "notify" },
+            { event = "lsp" },
+            { event = "noice", kind = { "stats", "debug" }, },
+            { warning = true },
+            { error = true },
+            -- {},
+          },
+        },
+      },
+      -- {
+      --   view = "mini",
+      --   filter = {
+      --     any = {
+      --       {},
+      --     },
+      --   },
+      --   opts = { skip = true },
+      -- },
+    },
     status = {}, --@see the section on statusline components below
-    ---@type NoiceFormatOptions
     format = {}, -- @see section on formatting
   })
 end
