@@ -173,7 +173,7 @@ function M.setup()
         view = "mini",
         filter = {
           any = {
-            { event = "msg_show", kind = { "", "echo" } },
+            { event = "msg_show", kind = { "", "echo", "echomsg" } },
             { event = "msg_showmode", kind = { "", "echo" } },
             { event = "notify" },
             { event = "lsp" },
