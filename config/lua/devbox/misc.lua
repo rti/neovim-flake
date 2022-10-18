@@ -137,6 +137,7 @@ function M.setup()
     debug = false,
     views = {
       cmdline_popup = {
+        position = { row = "3%", col = "50%" },
         border = {
           style = {
             {"🭽", "FloatBorder"},
@@ -154,6 +155,10 @@ function M.setup()
         win_options = {
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
         },
+      },
+
+      mini = {
+        timeout = 7000,
       },
     },
 
@@ -178,6 +183,7 @@ function M.setup()
             { event = "notify" },
             { event = "lsp" },
             { event = "noice", kind = { "stats", "debug" }, },
+            -- { info = true }, -- TODO? is this the correct type? (eg for nvim tree removed success)
             { warning = true },
             { error = true },
             -- {},
