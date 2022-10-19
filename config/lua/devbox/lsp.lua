@@ -151,6 +151,7 @@ local function setup_lspconfig_servers()
     "rnix",
     "sumneko_lua",
     "vimls",
+    "yamlls",
   }
 
   for _, server in pairs(servers) do

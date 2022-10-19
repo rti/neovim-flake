@@ -296,6 +296,9 @@
             # Vim
             nodePackages.vim-language-server
 
+            # YAML
+            nodePackages.yaml-language-server
+
             # Spelling and grammar
             languagetool
           ];
