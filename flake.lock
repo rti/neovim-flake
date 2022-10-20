@@ -679,22 +679,6 @@
         "type": "github"
       }
     },
-    "plugin_nvim-lua_popup.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1637254091,
-        "narHash": "sha256-dNWz/xovUg55fDZUpVs/2kLphk3lqQyvPtc9ATwbeSQ=",
-        "owner": "nvim-lua",
-        "repo": "popup.nvim",
-        "rev": "b7404d35d5d3548a82149238289fa71f7f6de4ac",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-lua",
-        "repo": "popup.nvim",
-        "type": "github"
-      }
-    },
     "plugin_nvim-lualine_lualine.nvim": {
       "flake": false,
       "locked": {
@@ -1154,7 +1138,6 @@
         "plugin_neovim_nvim-lspconfig": "plugin_neovim_nvim-lspconfig",
         "plugin_norcalli_nvim-colorizer.lua": "plugin_norcalli_nvim-colorizer.lua",
         "plugin_nvim-lua_plenary.nvim": "plugin_nvim-lua_plenary.nvim",
-        "plugin_nvim-lua_popup.nvim": "plugin_nvim-lua_popup.nvim",
         "plugin_nvim-lualine_lualine.nvim": "plugin_nvim-lualine_lualine.nvim",
         "plugin_nvim-telescope_telescope-dap.nvim": "plugin_nvim-telescope_telescope-dap.nvim",
         "plugin_nvim-telescope_telescope.nvim": "plugin_nvim-telescope_telescope.nvim",

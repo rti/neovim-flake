@@ -18,7 +18,8 @@
 
     "java-debug-bin" = { url = "github:rti/java-debug/0.40.0-bin"; flake = false; };
 
-    "plugin_nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; };
+    /* TODO: what did we need it for? disabled for now */
+    /* "plugin_nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; }; */
     "plugin_nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
 
     "plugin_nvim-tree_nvim-web-devicons" = { url = "github:nvim-tree/nvim-web-devicons"; flake = false; };
