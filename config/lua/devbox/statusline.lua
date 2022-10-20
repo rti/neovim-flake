@@ -24,6 +24,7 @@ function M.setup()
       component_separators = {left = ' ', right = ' '}
     },
     sections = {
+      lualine_a = {'mode'},
       lualine_b = {
         { 'filename', path = 1 },
         { 'diff', colored = true },
@@ -52,7 +53,27 @@ function M.setup()
         'location',
         'progress',
       }
-    }
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {
+        { 'filename', path = 1 },
+      },
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    },
+    -- winbar = {
+    --   lualine_b = {
+    --     { 'filename', path = 1 },
+    --   },
+    -- },
+    -- inactive_winbar = {
+    --   lualine_b = {
+    --     { 'filename', path = 1 },
+    --   },
+    -- },
   }
 end
 
