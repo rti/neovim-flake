@@ -4,6 +4,7 @@ local cmp = require('cmp')
 local cmp_types = require('cmp.types')
 local cmp_buffer = require('cmp_buffer')
 local autopairs = require('nvim-autopairs')
+local border = require('devbox/border').border
 
 -- https://github.com/jhchabran/nvim-config/blob/main/lua/jh/plugins.lua#L147
 local has_words_before = function()
@@ -142,30 +143,8 @@ function M.setup()
     },
 
     window = {
-      completion = {
-        border = {
-          {"🭽", "FloatBorder"},
-          {"▔", "FloatBorder"},
-          {"🭾", "FloatBorder"},
-          {"▕", "FloatBorder"},
-          {"🭿", "FloatBorder"},
-          {"▁", "FloatBorder"},
-          {"🭼", "FloatBorder"},
-          {"▏", "FloatBorder"},
-        },
-      },
-      documentation = {
-        border = {
-          {"🭽", "FloatBorder"},
-          {"▔", "FloatBorder"},
-          {"🭾", "FloatBorder"},
-          {"▕", "FloatBorder"},
-          {"🭿", "FloatBorder"},
-          {"▁", "FloatBorder"},
-          {"🭼", "FloatBorder"},
-          {"▏", "FloatBorder"},
-        },
-      },
+      completion = { border = border, },
+      documentation = { border = border, },
     },
 
     formatting = {

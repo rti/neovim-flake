@@ -1,9 +1,7 @@
 local M = {}
 
 local dressing = require('dressing')
-
--- local map = require('devbox/util').map
--- local cmd = vim.cmd
+local border = require('devbox/border').border
 
 function M.setup()
   dressing.setup({
@@ -24,16 +22,7 @@ function M.setup()
       -- These are passed to nvim_open_win
       anchor = "SW",
       -- border = "rounded",
-      border = {
-        {"🭽", "FloatBorder"},
-        {"▔", "FloatBorder"},
-        {"🭾", "FloatBorder"},
-        {"▕", "FloatBorder"},
-        {"🭿", "FloatBorder"},
-        {"▁", "FloatBorder"},
-        {"🭼", "FloatBorder"},
-        {"▏", "FloatBorder"},
-      },
+      border = border,
       -- 'editor' and 'win' will default to being centered
       relative = "cursor",
 

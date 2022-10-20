@@ -1,5 +1,6 @@
 local M = {}
 
+local borderchars = require("devbox/border").borderchars
 local wk = require("which-key")
 
 local telescope = require('telescope')
@@ -44,10 +45,7 @@ local defaults = {
   generic_sorter = telescope_sorters.get_generic_fuzzy_sorter,
   path_display = { "truncate" },
   winblend = 0,
-  border = {},
-  -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-  -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-  borderchars = { '▔', '▕', '▁', '▏', '🭽', '🭾', '🭿', '🭼' },
+  borderchars = borderchars,
   color_devicons = true,
   use_less = true,
   set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,

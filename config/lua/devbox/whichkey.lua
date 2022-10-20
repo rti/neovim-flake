@@ -1,6 +1,7 @@
 local M = {}
 
 local wk = require("which-key")
+local border = require("devbox/border").border
 
 function M.setup()
   require("which-key").setup {
@@ -43,7 +44,7 @@ function M.setup()
       scroll_up = '<c-u>', -- binding to scroll up inside the popup
     },
     window = {
-      border = "none", -- none, single, double, shadow
+      border = border,
       position = "top", -- bottom, top
       margin = { 2, 2, 2, 2 }, -- extra window margin [top, right, bottom, left]
       padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]

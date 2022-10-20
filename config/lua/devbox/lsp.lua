@@ -12,17 +12,7 @@ local jdtls = require("jdtls")
 local lightbulb = require("nvim-lightbulb")
 
 local wk = require("which-key")
-
-local border = {
-  { "🭽", "FloatBorder" },
-  { "▔", "FloatBorder" },
-  { "🭾", "FloatBorder" },
-  { "▕", "FloatBorder" },
-  { "🭿", "FloatBorder" },
-  { "▁", "FloatBorder" },
-  { "🭼", "FloatBorder" },
-  { "▏", "FloatBorder" },
-}
+local border = require("devbox/border").border
 
 -- override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
