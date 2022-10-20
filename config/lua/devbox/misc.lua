@@ -39,9 +39,9 @@ function M.setup()
       view_search = "cmdline_popup_search", -- view for rendering the cmdline for search
       opts = { buf_options = { filetype = "vim" } }, -- enable syntax highlighting in the cmdline
       icons = {
-        ["/"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch" },
-        ["?"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch" },
-        [":"] = { icon = " ", hl_group = "NoiceCmdlineIcon", firstc = false },
+        ["/"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch", firstc = true },
+        ["?"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch", firstc = true },
+        [":"] = { icon = " ", hl_group = "NoiceCmdlineIcon", firstc = true },
       },
     },
     messages = {
@@ -118,14 +118,24 @@ function M.setup()
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
         },
       },
+      cmdline_popup_search = {
+        position = { row = "3%", col = "50%" },
+        filter_options = {},
+        win_options = {
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+        },
+      },
 
       mini = {
+        win_options = {
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+        },
         timeout = 7500,
+        reverse = false,
       },
     },
 
     routes = {
-
       -- skip search virtual text
       {
         filter = {
