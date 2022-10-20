@@ -46,7 +46,7 @@ function M.setup()
       min_width = { 20, 0.2 },
 
       -- Window transparency (0-100)
-      winblend = 10,
+      winblend = 0,
       -- Change default highlight groups (see :help winhl)
       winhighlight = "",
 
@@ -65,28 +65,12 @@ function M.setup()
       enabled = true,
 
       -- Priority list of preferred vim.select implementations
-      backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+      backend = { "telescope", "nui", "builtin",},
 
       -- Options for telescope selector
       -- These are passed into the telescope picker directly. Can be used like:
       -- telescope = require('telescope.themes').get_ivy({...})
       telescope = nil,
-
-      -- Options for fzf selector
-      -- fzf = {
-      --   window = {
-      --     width = 0.5,
-      --     height = 0.4,
-      --   },
-      -- },
-
-      -- Options for fzf_lua selector
-      -- fzf_lua = {
-      --   winopts = {
-      --     width = 0.5,
-      --     height = 0.4,
-      --   },
-      -- },
 
       -- Options for nui Menu
       -- nui = {
