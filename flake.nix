@@ -2,9 +2,9 @@
   description = "rti Neovim, based on Luca's simple Neovim flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/release-22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
 
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -95,7 +95,6 @@
     "plugin_mcchrish_zenbones.nvim" = { url = "github:mcchrish/zenbones.nvim"; flake = false; };
     "plugin_Mofiqul_adwaita.nvim" = { url = "github:Mofiqul/adwaita.nvim"; flake = false; };
 
-    "plugin_rcarriga_nvim-notify" = { url = "github:rcarriga/nvim-notify"; flake = false; };
     "plugin_MunifTanjim_nui.nvim" = { url = "github:MunifTanjim/nui.nvim"; flake = false; };
     "plugin_folke_noice.nvim" = { url = "github:folke/noice.nvim"; flake = false; };
   };
