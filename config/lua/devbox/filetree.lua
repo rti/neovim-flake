@@ -25,6 +25,7 @@ function M.setup()
               "packer",
               "qf",
               "vista",
+              "noice",
             },
             buftype = {
               'terminal',
