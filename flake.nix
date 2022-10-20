@@ -34,7 +34,6 @@
     /* lsp */
     "plugin_neovim_nvim-lspconfig" = { url = "github:neovim/nvim-lspconfig"; flake = false; };
     "plugin_jose-elias-alvarez_null-ls.nvim" = { url = "github:jose-elias-alvarez/null-ls.nvim"; flake = false; };
-    "plugin_j-hui_fidget.nvim" = { url = "github:j-hui/fidget.nvim"; flake = false; };
     "plugin_mfussenegger_nvim-jdtls" = { url = "github:mfussenegger/nvim-jdtls"; flake = false; };
     "plugin_SmiteshP_nvim-gps" = { url = "github:SmiteshP/nvim-gps"; flake = false; };
     "plugin_simrat39_symbols-outline.nvim" = { url = "github:simrat39/symbols-outline.nvim"; flake = false; };

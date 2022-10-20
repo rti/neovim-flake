@@ -9,7 +9,6 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local jdtls = require("jdtls")
 
--- local fidget = require("fidget")
 local lightbulb = require("nvim-lightbulb")
 
 local wk = require("which-key")
@@ -300,7 +299,6 @@ function M.setup()
   setup_jdtls()
   setup_lspsigns()
   setup_lightbulb()
-  -- fidget.setup()
 end
 
 return M
