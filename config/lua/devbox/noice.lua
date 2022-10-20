@@ -73,16 +73,7 @@ function M.setup()
       cmdline_popup = {
         position = { row = "3%", col = "50%" },
         border = {
-          style = {
-            {"🭽", "FloatBorder"},
-            {"▔", "FloatBorder"},
-            {"🭾", "FloatBorder"},
-            {"▕", "FloatBorder"},
-            {"🭿", "FloatBorder"},
-            {"▁", "FloatBorder"},
-            {"🭼", "FloatBorder"},
-            {"▏", "FloatBorder"},
-          },
+          style = border,
           -- padding = { 2, 3 },
         },
         filter_options = {},
@@ -101,7 +92,6 @@ function M.setup()
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
         },
       },
-
       mini = {
         border = {
           style = border,
@@ -117,37 +107,10 @@ function M.setup()
 
     routes = {
       -- skip search virtual text
-      {
-        filter = {
-          event = "msg_show",
-          kind = "search_count",
-        },
-        opts = { skip = true },
-      },
-
-      -- as much as possible to mini view
-      {
-        view = "mini",
-        filter = {
-          any = {
-            { event = "msg_show", kind = { "", "echo", "echomsg" } },
-            { event = "msg_showmode", kind = { "", "echo" } },
-            { event = "notify" },
-            { event = "lsp" },
-            { event = "noice", kind = { "stats", "debug" }, },
-            -- { info = true }, -- TODO? is this the correct type? (eg for nvim tree removed success)
-            { warning = true },
-            { error = true },
-            -- {},
-          },
-        },
-      },
       -- {
-      --   view = "mini",
       --   filter = {
-      --     any = {
-      --       {},
-      --     },
+      --     event = "msg_show",
+      --     kind = "search_count",
       --   },
       --   opts = { skip = true },
       -- },
