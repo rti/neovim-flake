@@ -171,7 +171,7 @@
         neovimBuilder = { customRC, dependencies }:
           let
             neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
-              /* patches = (oldAttrs.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ]; */
+              patches = (oldAttrs.patches or [ ]) ++ [ /* no patches for now */ ];
             });
 
             neovim-wrapped = pkgs.wrapNeovim neovimUnwrapped {
