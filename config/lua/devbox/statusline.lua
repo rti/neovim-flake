@@ -33,10 +33,10 @@ function M.setup()
         { gps.get_location, cond = gps.is_available },
       },
       lualine_x = {
-        {
-          require("noice").api.statusline.message.get_hl,
-          cond = require("noice").api.statusline.message.has,
-        },
+        -- {
+        --   require("noice").api.statusline.message.get_hl,
+        --   cond = require("noice").api.statusline.message.has,
+        -- },
         {
           require("noice").api.statusline.command.get,
           cond = require("noice").api.statusline.command.has,

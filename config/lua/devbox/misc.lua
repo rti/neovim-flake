@@ -1,7 +1,6 @@
 local M = {}
 
 local stabilize = require('stabilize')
-local notify = require('notify')
 local noice = require('noice')
 
 function M.setup_autohide_cursorline()
@@ -33,61 +32,16 @@ function M.setup()
 
   M.setup_autohide_cursorline()
 
-  notify.setup(
-  {
-    background_colour = "Normal",
-    fps = 30,
-    icons = {
-      DEBUG = "",
-      ERROR = "",
-      INFO = "",
-      TRACE = "✎",
-      WARN = ""
-    },
-    level = 2,
-    minimum_width = 50,
-    render = "minimal",
-    stages = "static",
-    timeout = 5000,
-    top_down = true
-  })
-
-  vim.cmd[[
-  highlight NotifyERRORBorder guifg=#8A1F1F
-  highlight link NotifyERRORTitle NotifyERRORBorder
-  highlight link NotifyERRORIcon NotifyERRORBorder
-  highlight link NotifyERRORBody Normal
-
-  highlight NotifyWARNBorder guifg=#79491D
-  highlight link NotifyWARNIcon NotifyWARNBorder
-  highlight link NotifyWARNTitle NotifyWARNBorder
-  highlight link NotifyWARNBody Normal
-
-  highlight link NotifyINFOBorder Normal
-  highlight link NotifyINFOIcon Normal
-  highlight link NotifyINFOTitle Normal
-  highlight link NotifyINFOBody Normal
-
-  highlight link NotifyDEBUGBorder Normal
-  highlight link NotifyDEBUGIcon Normal
-  highlight link NotifyDEBUGTitle Normal
-  highlight link NotifyDEBUGBody Normal
-
-  highlight link NotifyTRACEIcon Normal
-  highlight link NotifyTRACEBorder Normal
-  highlight link NotifyTRACETitle Normal
-  highlight link NotifyTRACEBody Normal
-  ]]
-
   noice.setup({
     cmdline = {
       enabled = true, -- disable if you use native command line UI
       view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+      view_search = "cmdline_popup_search", -- view for rendering the cmdline for search
       opts = { buf_options = { filetype = "vim" } }, -- enable syntax highlighting in the cmdline
       icons = {
-        ["/"] = { icon = " ", hl_group = "DiagnosticWarn" },
-        ["?"] = { icon = " ", hl_group = "DiagnosticWarn" },
-        [":"] = { icon = " ", hl_group = "DiagnosticInfo", firstc = false },
+        ["/"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch" },
+        ["?"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch" },
+        [":"] = { icon = " ", hl_group = "NoiceCmdlineIcon", firstc = false },
       },
     },
     messages = {
@@ -95,6 +49,11 @@ function M.setup()
       -- automatically. You cannot enable noice messages UI only.
       -- It is current neovim implementation limitation.  It may be fixed later.
       enabled = true, -- disable if you use native messages UI
+      view = "notify", -- default view for messages
+      view_error = "notify", -- view for errors
+      view_warn = "notify", -- view for warnings
+      view_history = "split", -- view for :messages
+      view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
     },
     popupmenu = {
       enabled = false, -- disable if you use something like cmp-cmdline
@@ -105,8 +64,8 @@ function M.setup()
     history = {
       -- options for the message history that you get with `:Noice`
       view = "split",
-      opts = { enter = true },
-      -- filter = { event = "msg_show", ["not"] = { kind = { "search_count", "echo" } } },
+      opts = { enter = true, format = "details" },
+      filter = { event = { "msg_show", "notify" }, ["not"] = { kind = { "search_count", "echo" } } },
     },
     notify = {
       -- Noice can be used as `vim.notify` so you can route any notification like other messages
@@ -115,15 +74,18 @@ function M.setup()
       -- The default routes will forward notifications to nvim-notify
       -- Benefit of using Noice for this is the routing and consistent history view
       enabled = true,
+      view = "mini",
     },
     lsp_progress = {
-      enabled = true,
-      format = {
-        { "{data.progress.message} " },
-        "({data.progress.percentage}%) ",
-        { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
-        { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
-      },
+      enabled = false,
+      -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
+      -- See the section on formatting for more details on how to customize.
+      --- @type NoiceFormat|string
+      format = "lsp_progress",
+      --- @type NoiceFormat|string
+      format_done = "lsp_progress_done",
+      throttle = 1000 / 30, -- frequency to update lsp progress message
+      view = "mini",
     },
     hacks = {
       -- due to https://github.com/neovim/neovim/issues/20416
@@ -158,7 +120,7 @@ function M.setup()
       },
 
       mini = {
-        timeout = 7000,
+        timeout = 7500,
       },
     },
 
