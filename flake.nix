@@ -265,6 +265,7 @@
             nodePackages.typescript-language-server
             nodePackages.vscode-json-languageserver
             nodePackages.eslint_d
+            nodePackages.prettier
 
             # HTML / CSS
             nodePackages.vscode-html-languageserver-bin
