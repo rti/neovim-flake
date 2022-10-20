@@ -8,13 +8,26 @@ function M.setup()
     cmdline = {
       enabled = true, -- disable if you use native command line UI
       view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-      view_search = "cmdline_popup_search", -- view for rendering the cmdline for search
       opts = { buf_options = { filetype = "vim" } }, -- enable syntax highlighting in the cmdline
-      icons = {
-        ["/"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch", firstc = false },
-        ["?"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch", firstc = false },
-        [":"] = { icon = " ", hl_group = "NoiceCmdlineIcon", firstc = false },
+      format = {
+        -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
+        -- view: (default is cmdline view)
+        -- opts: any options passed to the view
+        -- icon_hl_group: optional hl_group for the icon
+        cmdline = { pattern = "^:", icon = " " },
+        search_down = { kind = "search", pattern = "^/", icon = " " },
+        search_up = { kind = "search", pattern = "^%?", icon = " " },
+        filter = { pattern = "^:%s*!", icon = " ", opts = { buf_options = { filetype = "sh" } } },
+        lua = { pattern = "^:%s*lua%s+", icon = " ", opts = { buf_options = { filetype = "lua" } } },
+        -- lua = false, -- to disable a format, set to `false`
       },
+      -- view_search = "cmdline_popup_search", -- view for rendering the cmdline for search
+      -- opts = { buf_options = { filetype = "vim" } }, -- enable syntax highlighting in the cmdline
+      -- icons = {
+      --   ["/"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch", firstc = false },
+      --   ["?"] = { icon = " ", hl_group = "NoiceCmdlineIconSearch", firstc = false },
+      --   [":"] = { icon = " ", hl_group = "NoiceCmdlineIcon", firstc = false },
+      -- },
     },
     messages = {
       -- NOTE: If you enable noice messages UI, noice cmdline UI is enabled
