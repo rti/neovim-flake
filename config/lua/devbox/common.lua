@@ -49,7 +49,7 @@ function M.setup()
     ["]t"] = { ":tabnext<cr>", "Next tab" },
     ["[t"] = { ":tabprevious<cr>", "Previous tab" },
     ["<C-w>t"] = { ":tabnew<cr>", "Create new tab" },
-    ["<leader>dt"] = { ":tabclose<cr>", "Close tab" },
+    ["<leader>td"] = { ":tabclose<cr>", "Close tab" },
 
     -- save and quit with leader
     ["<leader>w"] = { ":w<cr>", "Write buffer" },
