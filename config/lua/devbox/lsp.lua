@@ -2,15 +2,10 @@ local M = {}
 
 local lspconfig = require("lspconfig")
 local root_pattern = require("lspconfig/util").root_pattern
-
 local null_ls = require("null-ls")
-
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 local jdtls = require("jdtls")
-
 local lightbulb = require("nvim-lightbulb")
-
 local wk = require("which-key")
 local border = require("devbox/border").border
 
@@ -118,7 +113,7 @@ local function on_attach(client, bufnr)
 end
 
 local function make_config()
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  local capabilities = cmp_nvim_lsp.default_capabilities()
 
   return {
     capabilities = capabilities,
