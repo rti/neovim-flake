@@ -535,38 +535,6 @@
         "type": "github"
       }
     },
-    "plugin_kyazdani42_nvim-tree.lua": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1666053266,
-        "narHash": "sha256-u14P3qpVjqAIUr1Pf9m7Dv/4gXRbAIg7yL1YCSjsGFg=",
-        "owner": "kyazdani42",
-        "repo": "nvim-tree.lua",
-        "rev": "2b970635d1ef531355a380258372411576ecad4d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kyazdani42",
-        "repo": "nvim-tree.lua",
-        "type": "github"
-      }
-    },
-    "plugin_kyazdani42_nvim-web-devicons": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1666002102,
-        "narHash": "sha256-kpg9K8WtZHp5FP+23AQK3W0yQOK1ZB6z8kHvy8jcHxM=",
-        "owner": "kyazdani42",
-        "repo": "nvim-web-devicons",
-        "rev": "9061e2d355ecaa2b588b71a35e7a11358a7e51e1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kyazdani42",
-        "repo": "nvim-web-devicons",
-        "type": "github"
-      }
-    },
     "plugin_leafOfTree_vim-vue-plugin": {
       "flake": false,
       "locked": {
@@ -772,6 +740,38 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "plugin_nvim-tree_nvim-tree.lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666053266,
+        "narHash": "sha256-u14P3qpVjqAIUr1Pf9m7Dv/4gXRbAIg7yL1YCSjsGFg=",
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "rev": "2b970635d1ef531355a380258372411576ecad4d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
+    "plugin_nvim-tree_nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666002102,
+        "narHash": "sha256-kpg9K8WtZHp5FP+23AQK3W0yQOK1ZB6z8kHvy8jcHxM=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "9061e2d355ecaa2b588b71a35e7a11358a7e51e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
         "type": "github"
       }
     },
@@ -1145,8 +1145,6 @@
         "plugin_jamessan_vim-gnupg": "plugin_jamessan_vim-gnupg",
         "plugin_jose-elias-alvarez_null-ls.nvim": "plugin_jose-elias-alvarez_null-ls.nvim",
         "plugin_kosayoda_nvim-lightbulb": "plugin_kosayoda_nvim-lightbulb",
-        "plugin_kyazdani42_nvim-tree.lua": "plugin_kyazdani42_nvim-tree.lua",
-        "plugin_kyazdani42_nvim-web-devicons": "plugin_kyazdani42_nvim-web-devicons",
         "plugin_leafOfTree_vim-vue-plugin": "plugin_leafOfTree_vim-vue-plugin",
         "plugin_lewis6991_gitsigns.nvim": "plugin_lewis6991_gitsigns.nvim",
         "plugin_luukvbaal_stabilize.nvim": "plugin_luukvbaal_stabilize.nvim",
@@ -1160,6 +1158,8 @@
         "plugin_nvim-lualine_lualine.nvim": "plugin_nvim-lualine_lualine.nvim",
         "plugin_nvim-telescope_telescope-dap.nvim": "plugin_nvim-telescope_telescope-dap.nvim",
         "plugin_nvim-telescope_telescope.nvim": "plugin_nvim-telescope_telescope.nvim",
+        "plugin_nvim-tree_nvim-tree.lua": "plugin_nvim-tree_nvim-tree.lua",
+        "plugin_nvim-tree_nvim-web-devicons": "plugin_nvim-tree_nvim-web-devicons",
         "plugin_nvim-treesitter_nvim-treesitter-textobjects": "plugin_nvim-treesitter_nvim-treesitter-textobjects",
         "plugin_p00f_nvim-ts-rainbow": "plugin_p00f_nvim-ts-rainbow",
         "plugin_rafamadriz_friendly-snippets": "plugin_rafamadriz_friendly-snippets",
