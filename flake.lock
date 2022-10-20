@@ -1015,22 +1015,6 @@
         "type": "github"
       }
     },
-    "plugin_tyru_open-browser.vim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1665248470,
-        "narHash": "sha256-9QZgTv8W0BFlF0lsH1BPPAzjD6iXWXHXZf2zpouQH2s=",
-        "owner": "tyru",
-        "repo": "open-browser.vim",
-        "rev": "7d4c1d8198e889d513a030b5a83faa07606bac27",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tyru",
-        "repo": "open-browser.vim",
-        "type": "github"
-      }
-    },
     "plugin_weilbith_nvim-code-action-menu": {
       "flake": false,
       "locked": {
@@ -1143,7 +1127,6 @@
         "plugin_tpope_vim-sleuth": "plugin_tpope_vim-sleuth",
         "plugin_tpope_vim-speeddating": "plugin_tpope_vim-speeddating",
         "plugin_tpope_vim-surround": "plugin_tpope_vim-surround",
-        "plugin_tyru_open-browser.vim": "plugin_tyru_open-browser.vim",
         "plugin_weilbith_nvim-code-action-menu": "plugin_weilbith_nvim-code-action-menu",
         "plugin_windwp_nvim-autopairs": "plugin_windwp_nvim-autopairs",
         "plugin_windwp_nvim-ts-autotag": "plugin_windwp_nvim-ts-autotag"
