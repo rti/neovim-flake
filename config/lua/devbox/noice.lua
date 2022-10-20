@@ -17,7 +17,7 @@ function M.setup()
         cmdline = { pattern = "^:", icon = " " },
         search_down = { kind = "search", pattern = "^/", icon = " " },
         search_up = { kind = "search", pattern = "^%?", icon = " " },
-        filter = { pattern = "^:%s*!", icon = " ", opts = { buf_options = { filetype = "sh" } } },
+        filter = { pattern = "^:%s*!", icon = "❱ ", opts = { buf_options = { filetype = "sh" } } },
         lua = { pattern = "^:%s*lua%s+", icon = " ", opts = { buf_options = { filetype = "lua" } } },
         -- lua = false, -- to disable a format, set to `false`
       },
