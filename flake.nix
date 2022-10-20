@@ -21,7 +21,7 @@
     "plugin_nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     "plugin_nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
 
-    "plugin_kyazdani42_nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
+    "plugin_nvim-tree_nvim-web-devicons" = { url = "github:nvim-tree/nvim-web-devicons"; flake = false; };
 
     "plugin_nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
     "plugin_JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
@@ -67,7 +67,7 @@
 
     "plugin_Pocco81_auto-save.nvim" = { url = "github:Pocco81/auto-save.nvim"; flake = false; };
     "plugin_airblade_vim-rooter" = { url = "github:airblade/vim-rooter"; flake = false; };
-    "plugin_kyazdani42_nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
+    "plugin_nvim-tree_nvim-tree.lua" = { url = "github:nvim-tree/nvim-tree.lua"; flake = false; };
     "plugin_tpope_vim-sleuth" = { url = "github:tpope/vim-sleuth"; flake = false; };
 
     "plugin_jamessan_vim-gnupg" = { url = "github:jamessan/vim-gnupg"; flake = false; };
