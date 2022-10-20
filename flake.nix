@@ -94,8 +94,6 @@
     "plugin_leafOfTree_vim-vue-plugin" = { url = "github:leafOfTree/vim-vue-plugin"; flake = false; };
     "plugin_bfredl_nvim-luadev" = { url = "github:bfredl/nvim-luadev"; flake = false; };
 
-    "plugin_tyru_open-browser.vim" = { url = "github:tyru/open-browser.vim"; flake = false; };
-
     /* debugging */
     "plugin_mfussenegger_nvim-dap" = { url = "github:mfussenegger/nvim-dap"; flake = false; };
     "plugin_theHamsta_nvim-dap-virtual-text" = { url = "github:theHamsta/nvim-dap-virtual-text"; flake = false; };
