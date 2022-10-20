@@ -20,15 +20,18 @@
 
     /* TODO: what did we need it for? disabled for now */
     /* "plugin_nvim-lua_popup.nvim" = { url = "github:nvim-lua/popup.nvim"; flake = false; }; */
-    "plugin_nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
 
+    /* basic */
+    "plugin_nvim-lua_plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
     "plugin_nvim-tree_nvim-web-devicons" = { url = "github:nvim-tree/nvim-web-devicons"; flake = false; };
 
-    "plugin_nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
+    /* treesitter */
     "plugin_JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
-    "plugin_windwp_nvim-ts-autotag" = { url = "github:windwp/nvim-ts-autotag"; flake = false; };
     "plugin_p00f_nvim-ts-rainbow" = { url = "github:p00f/nvim-ts-rainbow"; flake = false; };
+    "plugin_nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
+    "plugin_windwp_nvim-ts-autotag" = { url = "github:windwp/nvim-ts-autotag"; flake = false; };
 
+    /* lsp */
     "plugin_neovim_nvim-lspconfig" = { url = "github:neovim/nvim-lspconfig"; flake = false; };
     "plugin_jose-elias-alvarez_null-ls.nvim" = { url = "github:jose-elias-alvarez/null-ls.nvim"; flake = false; };
     "plugin_j-hui_fidget.nvim" = { url = "github:j-hui/fidget.nvim"; flake = false; };

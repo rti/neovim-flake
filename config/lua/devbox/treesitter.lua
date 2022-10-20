@@ -5,19 +5,13 @@ local treesitter = require('nvim-treesitter')
 
 function M.setup()
   require('nvim-treesitter.configs').setup({
-    -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    -- ensure_installed = "maintained",
-    -- ensure_installed = "all",
-    -- ensure_installed = "nix,rust",
-
-    -- Install languages synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-
+    -- ensure_installed = "maintained", -- currently installed via nix
+    -- sync_install = false, -- only applied to `ensure_installed`
     -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
 
     highlight = {
-      enable = true,        -- false will disable the whole extension
-      -- disable = { "vue" },  -- list of language that will be disabled
+      enable = true,
+      -- disable = { "vue" },
       additional_vim_regex_highlighting = false,
     },
 
@@ -25,8 +19,6 @@ function M.setup()
     context_commentstring = {
       enable = true,
       config = {
-        -- css = '// %s',
-        -- scss = '// %s',
         http = '# %s',
       }
     },
@@ -37,25 +29,15 @@ function M.setup()
       -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
       extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
       max_file_lines = nil, -- Do not enable for files with more than n lines, int
-      colors = {
-        '#A8334C',
-        '#3B8992',
-        '#944927',
-        '#286486',
-        '#88507D',
-        '#4F6C31',
-      }, -- table of hex strings
-      termcolors = {
-        'Red',
-        'Green',
-        'Yellow',
-        'Blue',
-        'Magenta',
-        'Cyan',
-        'White', 
-      } -- table of colour name strings
+
+      -- table of hex strings
+      colors = { '#A8334C', '#3B8992', '#944927', '#286486', '#88507D', '#4F6C31', },
+
+      -- table of colour name strings
+      termcolors = { 'Red', 'Green', 'Yellow', 'Blue', 'Magenta', 'Cyan', 'White', }
     },
 
+    -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     textobjects = {
       select = {
         enable = true,
@@ -64,7 +46,6 @@ function M.setup()
         lookahead = true,
 
         keymaps = {
-          -- Plug 'nvim-treesitter/nvim-treesitter-textobjects'
           ["aa"] = "@parameter.outer",
           ["ia"] = "@parameter.inner",
           ["af"] = "@function.outer",
@@ -85,7 +66,7 @@ function M.setup()
       },
     },
 
-    -- Plug 'windwp/nvim-ts-autotag'
+    -- https://github.com/windwp/nvim-ts-autotag
     autotag = {
       enable = true,
     }
