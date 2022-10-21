@@ -125,6 +125,7 @@ local function setup_lspconfig_servers()
   local servers = {
     "bashls",
     "dockerls",
+    "clangd",
     "tsserver",
     "jsonls",
     "html",

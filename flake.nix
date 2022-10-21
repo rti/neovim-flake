@@ -265,6 +265,9 @@
             # Bash
             nodePackages.bash-language-server
 
+            # C/C++
+            clang-tools
+
             # Docker
             nodePackages.dockerfile-language-server-nodejs
 
