@@ -150,46 +150,50 @@
               plugins);
           };
 
+        my-overlay = [
+          pluginOverlay
+          (final: prev: {
+            /* neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim; */
+            /* neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim; */
+            java-debug = final.stdenv.mkDerivation
+              {
+                name = "java-debug";
+                src = inputs.java-debug-bin;
+                installPhase = ''
+                  mkdir -p $out/lib
+                  ls -la
+                  cp -rv ./com.microsoft.java.debug.plugin $out/lib/
+                '';
+              };
+          })
+        ];
+
         # Apply the overlay and load nixpkgs as `pkgs`
-        pkgs = import nixpkgs
-          {
-            inherit system;
-            overlays = [
-              pluginOverlay
-              (final: prev: {
-                neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim;
-                java-debug = final.stdenv.mkDerivation
-                  {
-                    name = "java-debug";
-                    src = inputs.java-debug-bin;
-                    installPhase = ''
-                      mkdir -p $out/lib
-                      ls -la
-                      cp -rv ./com.microsoft.java.debug.plugin $out/lib/
-                    '';
-                  };
-              })
-            ];
-          };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = my-overlay;
+        };
 
         pkgs-unstable = import nixpkgs-unstable {
           inherit system;
+          overlays = my-overlay;
         };
 
         neovimBuilder = { customRC, dependencies }:
           let
-            neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
-              patches = (oldAttrs.patches or [ ]) ++ [ /* no patches for now */ ];
+            /* neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: { */
+            neovimUnwrapped = pkgs-unstable.neovim-unwrapped.overrideAttrs (oldAttrs: {
+              /* patches = (oldAttrs.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ]; */
             });
 
-            neovim-wrapped = pkgs.wrapNeovim neovimUnwrapped {
+            neovim-wrapped = pkgs-unstable.wrapNeovim neovimUnwrapped {
               viAlias = true;
               vimAlias = true;
               configure = {
                 customRC = customRC;
-                packages.myVimPackage = with pkgs.neovimPlugins; {
+                packages.myVimPackage = with pkgs-unstable.neovimPlugins; {
                   start =
-                    builtins.attrValues pkgs.neovimPlugins ++
+                    builtins.attrValues pkgs-unstable.neovimPlugins ++
                     [
                       (pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins (_:
                         pkgs-unstable.tree-sitter.allGrammars))
@@ -254,7 +258,7 @@
             set rtp+=${./.}/config
             runtime init.lua
           '';
-          dependencies = with pkgs; [
+          dependencies = with pkgs-unstable; [
             # Telescope
             fd
             ripgrep
