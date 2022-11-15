@@ -1,17 +1,22 @@
 
 local M = {}
 
-local treesitter = require('nvim-treesitter')
-
 function M.setup()
+  -- Defines a read-write directory for treesitters in nvim's cache dir
+  -- local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
+  -- vim.fn.mkdir(parser_install_dir, "p")
+  -- vim.opt.runtimepath:append(parser_install_dir)
+
   require('nvim-treesitter.configs').setup({
-    -- ensure_installed = "maintained", -- currently installed via nix
+    -- ensure_installed = "c",
+    -- ensure_installed = "all", -- currently installed by nix
     -- sync_install = false, -- only applied to `ensure_installed`
     -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+    -- parser_install_dir = parser_install_dir,
 
     highlight = {
       enable = true,
-      -- disable = { "vue" },
+      disable = { "bash" }, -- bash currently broken
       additional_vim_regex_highlighting = false,
     },
 
@@ -71,6 +76,7 @@ function M.setup()
       enable = true,
     }
   })
+
 end
 
 return M
