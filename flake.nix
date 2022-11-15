@@ -26,6 +26,7 @@
     "plugin_nvim-tree_nvim-web-devicons" = { url = "github:nvim-tree/nvim-web-devicons"; flake = false; };
 
     /* treesitter */
+    /* "plugin_nvim-treesitter_nvim-treesitter" = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; }; */
     "plugin_JoosepAlviste_nvim-ts-context-commentstring" = { url = "github:JoosepAlviste/nvim-ts-context-commentstring"; flake = false; };
     "plugin_p00f_nvim-ts-rainbow" = { url = "github:p00f/nvim-ts-rainbow"; flake = false; };
     "plugin_nvim-treesitter_nvim-treesitter-textobjects" = { url = "github:nvim-treesitter/nvim-treesitter-textobjects"; flake = false; };
@@ -154,7 +155,6 @@
           pluginOverlay
           (final: prev: {
             /* neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim; */
-            /* neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim; */
             java-debug = final.stdenv.mkDerivation
               {
                 name = "java-debug";
@@ -169,34 +169,33 @@
         ];
 
         # Apply the overlay and load nixpkgs as `pkgs`
-        pkgs = import nixpkgs {
+        pkgs = import nixpkgs-unstable {
           inherit system;
           overlays = my-overlay;
         };
 
-        pkgs-unstable = import nixpkgs-unstable {
-          inherit system;
-          overlays = my-overlay;
-        };
+        /* pkgs-unstable = import nixpkgs-unstable { */
+        /*   inherit system; */
+        /*   overlays = my-overlay; */
+        /* }; */
 
         neovimBuilder = { customRC, dependencies }:
           let
-            /* neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: { */
-            neovimUnwrapped = pkgs-unstable.neovim-unwrapped.overrideAttrs (oldAttrs: {
+            neovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
               /* patches = (oldAttrs.patches or [ ]) ++ [ ./nvim-no-mod-time-check-on-write.patch ]; */
             });
 
-            neovim-wrapped = pkgs-unstable.wrapNeovim neovimUnwrapped {
+            neovim-wrapped = pkgs.wrapNeovim neovimUnwrapped {
               viAlias = true;
               vimAlias = true;
               configure = {
                 customRC = customRC;
-                packages.myVimPackage = with pkgs-unstable.neovimPlugins; {
+                packages.myVimPackage = with pkgs.neovimPlugins; {
                   start =
-                    builtins.attrValues pkgs-unstable.neovimPlugins ++
+                    builtins.attrValues pkgs.neovimPlugins ++
                     [
-                      (pkgs-unstable.vimPlugins.nvim-treesitter.withPlugins (_:
-                        pkgs-unstable.tree-sitter.allGrammars))
+                      (pkgs.vimPlugins.nvim-treesitter.withPlugins (_:
+                        pkgs.tree-sitter.allGrammars))
                     ];
                 };
               };
@@ -258,7 +257,7 @@
             set rtp+=${./.}/config
             runtime init.lua
           '';
-          dependencies = with pkgs-unstable; [
+          dependencies = with pkgs; [
             # Telescope
             fd
             ripgrep
@@ -271,6 +270,7 @@
 
             # C/C++
             clang-tools
+            gcc
 
             # Docker
             nodePackages.dockerfile-language-server-nodejs
@@ -293,7 +293,7 @@
             nodePackages.vls
 
             # GraphQL (not in stable yet 22.05)
-            pkgs-unstable.nodePackages.graphql-language-service-cli
+            /* nodePackages.graphql-language-service-cli */
 
             # NIX
             rnix-lsp
@@ -302,7 +302,7 @@
             /* python39Packages.jedi-language-server */
 
             # Java
-            pkgs-unstable.jdt-language-server
+            jdt-language-server
 
             # Lua
             sumneko-lua-language-server
