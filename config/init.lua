@@ -27,5 +27,5 @@ require('devbox/misc').setup()
 require('devbox/whichkey').setup()
 require('devbox/dressing').setup()
 require('devbox/dashboard').setup()
-require('devbox/noice').setup()
+-- require('devbox/noice').setup()
 

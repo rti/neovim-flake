@@ -35,14 +35,14 @@ function M.setup()
         { gps.get_location, cond = gps.is_available },
       },
       lualine_x = {
-        {
-          noice.api.statusline.mode.get,
-          cond = require("noice").api.statusline.mode.has,
-        },
-        {
-          noice.api.statusline.command.get,
-          cond = require("noice").api.statusline.command.has,
-        },
+        -- {
+        --   noice.api.statusline.mode.get,
+        --   cond = require("noice").api.statusline.mode.has,
+        -- },
+        -- {
+        --   noice.api.statusline.command.get,
+        --   cond = require("noice").api.statusline.command.has,
+        -- },
       },
       lualine_y = {
         'encoding',
