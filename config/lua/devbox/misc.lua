@@ -1,5 +1,6 @@
 local M = {}
 
+-- TODO: merged in master already
 local stabilize = require('stabilize')
 
 function M.setup_autohide_cursorline()
@@ -30,6 +31,16 @@ function M.setup()
   })
 
   M.setup_autohide_cursorline()
+
+  -- auto equal resize splits on vim resize
+  vim.api.nvim_create_autocmd({ "VimResized", "CursorHoldI" }, {
+    callback = function ()
+      vim.cmd("wincmd =")
+    end,
+  })
+
+  -- auto resize splits on split or window close
+  vim.o.equalalways = true;
 end
 
 return M
