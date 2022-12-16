@@ -16,7 +16,7 @@ function M.setup()
 
     highlight = {
       enable = true,
-      disable = { "bash", "markdown" }, -- bash and markdown currently broken
+      disable = { "bash", "kotlin" }, -- broken in :checkhealth
       additional_vim_regex_highlighting = false,
     },
 
