@@ -2,7 +2,7 @@ local M = {}
 
 local gps = require("nvim-gps")
 local lualine = require("lualine")
-local noice = require("noice")
+-- local noice = require("noice")
 
 function M.setup()
   gps.setup()
