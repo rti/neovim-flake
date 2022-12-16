@@ -45,7 +45,7 @@ function M.setup()
   vim.opt.wildignore = "*.d,*.lst,*.map,*.o,*/node_modules/*,*/dist/*"
   vim.opt.wrap = false -- Disable line wrap
   vim.opt.fillchars = "diff: " -- Fill chars
-  vim.opt.cmdheight = 0 -- neovim 0.8 cmd line hiding
+  vim.opt.cmdheight = 1 -- cmd line height/hiding
 
   vim.g.mapleader = " "
   vim.g.netrw_nogx = 1
