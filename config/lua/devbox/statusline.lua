@@ -18,13 +18,18 @@ function M.setup()
       },
       icons_enabled = true,
       theme = 'auto',
-      -- section_separators = {left = '', right = ''},
+      section_separators = { left = '', right = '' },
       -- section_separators = { left = '', right = ''},
-      section_separators = {left = ' ', right = ' '},
-      component_separators = {left = ' ', right = ' '}
+      -- section_separators = {left = ' ', right = ' '},
+      component_separators = { left = ' ', right = ' ' }
     },
     sections = {
-      lualine_a = {'mode'},
+      lualine_a = { 
+        { 
+          'mode', 
+          separator = { left = '' } 
+        } 
+      },
       lualine_b = {
         { 'filename', path = 1 },
         { 'diff', colored = true },
@@ -49,9 +54,12 @@ function M.setup()
         'fileformat',
         'filetype',
       },
-      lualine_z = {
-        'location',
-        'progress',
+      lualine_z = { 
+        {
+          'location',
+          'progress',
+          separator = { right = '' },
+        }
       }
     },
     inactive_sections = {
